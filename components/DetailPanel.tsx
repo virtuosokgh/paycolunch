@@ -82,7 +82,7 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
     let cancelled = false;
     setLoading(true);
     setInfo(null);
-    const url = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`;
+    const url = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
     fetch(url, { cache: "no-store" })
       .then((r) => r.json())
       .then((data: PlaceInfo) => {

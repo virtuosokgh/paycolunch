@@ -33,6 +33,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const name = searchParams.get("name");
   const address = searchParams.get("address") ?? "";
+  const categoryGroup = searchParams.get("categoryGroup") ?? "";
   if (!name) {
     return NextResponse.json({ error: "name required" }, { status: 400 });
   }
@@ -102,11 +103,38 @@ export async function GET(req: NextRequest) {
     });
 
   let menuImages = dedupe([...menu1, ...menu2, ...menu3]);
-  // 메뉴 결과가 부족하면 일반 이미지에서 채워서 최소 8개 보장
-  if (menuImages.length < 8) {
+
+  // 결과가 너무 적으면 카테고리 기반으로 한 번 더 fallback
+  if (menuImages.length < 4 && categoryGroup) {
+    try {
+      const catQ = encodeURIComponent(`${cleanName} ${categoryGroup}`);
+      const r = await fetch(
+        `https://openapi.naver.com/v1/search/image?query=${catQ}&display=8&filter=large&sort=sim`,
+        { headers },
+      );
+      if (r.ok) {
+        const j = await r.json();
+        const items = ((j.items ?? []) as NaverImageItem[]).map((it) => ({
+          title: stripHtml(it.title),
+          link: it.link,
+          thumbnail: it.thumbnail,
+        }));
+        menuImages = dedupe([...menuImages, ...items]);
+      }
+    } catch {
+      // 무시
+    }
+  }
+
+  // 그래도 12장 미만이면 일반 이미지로 채움
+  if (menuImages.length < 12) {
     menuImages = [...menuImages, ...dedupe(allImages)].slice(0, 12);
   }
-  const images = allImages.filter((it) => !menuImages.some((m) => m.thumbnail === it.thumbnail));
+
+  // 일반 사진 섹션은 메뉴와 중복되는 것 제외 (9장까지)
+  const images = allImages
+    .filter((it) => !menuImages.some((m) => m.thumbnail === it.thumbnail))
+    .slice(0, 9);
 
   let blogs: Array<{ title: string; link: string; description: string; bloggername: string; postdate: string }> = [];
   if (blogRes.status === "fulfilled" && blogRes.value.ok) {

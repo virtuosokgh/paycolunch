@@ -19,6 +19,7 @@ export default function RestaurantList({
 }) {
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
+  const setHoveredId = useAppStore((s) => s.setHoveredId);
   const sortByDistance = useAppStore((s) => s.sortByDistance);
 
   if (items.length === 0) {
@@ -43,6 +44,8 @@ export default function RestaurantList({
           <li
             key={r.id}
             onClick={() => setSelectedId(r.id)}
+            onMouseEnter={() => setHoveredId(r.id)}
+            onMouseLeave={() => setHoveredId(null)}
             className={`group px-4 py-3.5 cursor-pointer transition-colors ${
               selected ? "bg-emerald-50 border-l-4 border-emerald-500" : "border-l-4 border-transparent hover:bg-gray-50"
             }`}

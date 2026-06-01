@@ -29,6 +29,9 @@ interface AppState {
   selectedId: string | null;
   setSelectedId: (id: string | null) => void;
 
+  hoveredId: string | null;
+  setHoveredId: (id: string | null) => void;
+
   userLocation: UserLocation | null;
   sortByDistance: boolean;
   requestUserLocation: () => Promise<void>;
@@ -67,6 +70,9 @@ export const useAppStore = create<AppState>((set) => ({
 
   selectedId: null,
   setSelectedId: (id) => set({ selectedId: id }),
+
+  hoveredId: null,
+  setHoveredId: (id) => set({ hoveredId: id }),
 
   userLocation: null,
   sortByDistance: false,

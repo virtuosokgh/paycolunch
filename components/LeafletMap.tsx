@@ -7,29 +7,37 @@ import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import { useAppStore } from "../lib/store";
-import { CATEGORY_COLORS } from "../lib/categoryMap";
-import type { Restaurant } from "../lib/types";
+import { CATEGORY_COLORS, CATEGORY_ICONS } from "../lib/categoryMap";
+import type { Restaurant, CategoryGroup } from "../lib/types";
 
 const SEONGNAM_CENTER: L.LatLngTuple = [37.4019, 127.1086]; // 판교
 const DEFAULT_ZOOM = 14;
 
-function svgPinIcon(color: string, selected = false): L.DivIcon {
-  const size = selected ? 40 : 28;
-  const height = selected ? 50 : 36;
-  const stroke = selected ? 3 : 2;
-  const inner = selected ? 7 : 5;
-  const svg = `
-    <svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${height}' viewBox='0 0 28 36'
-         style='filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));'>
-      <path d='M14 0C6.27 0 0 6.27 0 14c0 9.5 14 22 14 22s14-12.5 14-22C28 6.27 21.73 0 14 0z'
-            fill='${color}' stroke='white' stroke-width='${stroke}'/>
-      <circle cx='14' cy='14' r='${inner}' fill='white'/>
-    </svg>`;
+function naverStyleIcon(
+  category: CategoryGroup,
+  name: string,
+  state: "normal" | "hover" | "selected" = "normal",
+): L.DivIcon {
+  const color = CATEGORY_COLORS[category];
+  const icon = CATEGORY_ICONS[category];
+  const isBig = state !== "normal";
+  const ringSize = isBig ? 38 : 30;
+  const ringClass = state === "selected" ? "marker-selected" : state === "hover" ? "marker-hover" : "";
+  const labelClass = state === "selected" ? "marker-label-selected" : "";
+  // 가게명이 너무 길면 자르고 …으로 표시
+  const displayName = name.length > 10 ? name.slice(0, 10) + "…" : name;
+  const html = `
+    <div class="naver-marker ${ringClass}">
+      <div class="naver-marker-ring" style="width:${ringSize}px; height:${ringSize}px; background:${color};">
+        <span class="naver-marker-emoji" style="font-size:${isBig ? 18 : 14}px;">${icon}</span>
+      </div>
+      <div class="naver-marker-label ${labelClass}">${displayName}</div>
+    </div>`;
   return L.divIcon({
-    html: svg,
-    className: "pin-marker",
-    iconSize: [size, height],
-    iconAnchor: [size / 2, height],
+    html,
+    className: "naver-marker-wrap",
+    iconSize: [ringSize + 50, ringSize + 22],
+    iconAnchor: [(ringSize + 50) / 2, ringSize],
   });
 }
 
@@ -52,6 +60,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
 
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
+  const hoveredId = useAppStore((s) => s.hoveredId);
   const userLocation = useAppStore((s) => s.userLocation);
   const setMapBounds = useAppStore((s) => s.setMapBounds);
 
@@ -164,6 +173,15 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     m.on("zoomend", update);
     m.on("load", update);
 
+    // 줌 레벨이 낮으면 마커 라벨 숨김 (clutter 방지)
+    const updateZoomClass = () => {
+      const z = m.getZoom();
+      if (z < 15) container.classList.add("leaflet-zoom-level-low");
+      else container.classList.remove("leaflet-zoom-level-low");
+    };
+    m.on("zoomend", updateZoomClass);
+    updateZoomClass();
+
     const ro = new ResizeObserver(() => {
       m.invalidateSize();
       update();
@@ -199,10 +217,11 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     const newMarkers: L.Marker[] = [];
     for (const r of filtered) {
       const marker = L.marker([r.lat, r.lng], {
-        icon: svgPinIcon(CATEGORY_COLORS[r.categoryGroup]),
+        icon: naverStyleIcon(r.categoryGroup, r.name, "normal"),
         title: r.name,
       });
       (marker as any)._cat = r.categoryGroup;
+      (marker as any)._name = r.name;
       marker.on("click", () => {
         setSelectedId(r.id);
         mapRef.current?.panTo([r.lat, r.lng]);
@@ -213,22 +232,25 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     cluster.addLayers(newMarkers);
   }, [filtered, setSelectedId]);
 
-  // pan to selection + 강조
+  // selection / hover 강조
   useEffect(() => {
     if (!mapRef.current) return;
-    // 모든 마커 기본 사이즈로
     markersRef.current.forEach((m, id) => {
-      const cat = (m as any)._cat as string | undefined;
-      const color = cat ? CATEGORY_COLORS[cat as keyof typeof CATEGORY_COLORS] : "#6b7280";
-      m.setIcon(svgPinIcon(color, id === selectedId));
-      if (id === selectedId) m.setZIndexOffset(500);
+      const cat = (m as any)._cat as CategoryGroup | undefined;
+      const name = (m as any)._name as string | undefined;
+      if (!cat || !name) return;
+      const state: "normal" | "hover" | "selected" =
+        id === selectedId ? "selected" : id === hoveredId ? "hover" : "normal";
+      m.setIcon(naverStyleIcon(cat, name, state));
+      if (id === selectedId) m.setZIndexOffset(600);
+      else if (id === hoveredId) m.setZIndexOffset(300);
       else m.setZIndexOffset(0);
     });
     if (selectedId) {
       const m = markersRef.current.get(selectedId);
       if (m) mapRef.current.panTo(m.getLatLng());
     }
-  }, [selectedId]);
+  }, [selectedId, hoveredId]);
 
   // user location marker
   useEffect(() => {
