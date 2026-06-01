@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto,
+    "Noto Sans KR", sans-serif;
+  color: #111827;
+  background: #f9fafb;
+}
+
+/* Leaflet pin marker — let the inline SVG show through */
+.pin-marker {
+  background: transparent !important;
+  border: none !important;
+}
+.user-dot {
+  background: transparent !important;
+  border: none !important;
+}
+.leaflet-container {
+  font: inherit;
+}
