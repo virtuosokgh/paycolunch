@@ -123,6 +123,31 @@ function similarity(a, b) {
   return m / Math.max(aa.length, bb.length);
 }
 
+// "한촌설렁탕(판교테크노밸리점)" → "한촌설렁탕"
+// "1992덮밥&짜글이(판교파미어스몰점)_KIOSK" → "1992덮밥&짜글이"
+function cleanName(name) {
+  return name
+    .replace(/\([^)]*\)/g, "")
+    .replace(/_KIOSK/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// "경기도 성남시 분당구 대왕판교로606번길 41 지하 1층" → "경기도 성남시 분당구 대왕판교로606번길 41"
+function roadAddressCore(rawAddress) {
+  const { address } = parseAddress(rawAddress);
+  const m = address.match(/^(.*?(?:번길|길|로|대로)\s*\d+(?:-\d+)?)/);
+  return m ? m[1] : address;
+}
+
+function nameSimilarEnough(targetName, candidateTitle) {
+  const a = (targetName ?? "").replace(/\s+/g, "").toLowerCase();
+  const b = stripHtml(candidateTitle ?? "").replace(/\s+/g, "").toLowerCase();
+  if (!a || !b) return false;
+  if (b.includes(a) || a.includes(b)) return true;
+  return similarity(a, b) >= 0.5;
+}
+
 function pickBestItem(name, dong, items) {
   if (items.length === 0) return null;
   let best = null;
@@ -149,43 +174,88 @@ function naverCoordsToLatLng(mapx, mapy) {
   return { lat, lng };
 }
 
+async function searchNaver(query) {
+  const q = encodeURIComponent(query);
+  const url = `https://openapi.naver.com/v1/search/local.json?query=${q}&display=5&sort=random`;
+  const resp = await naverFetch(url);
+  return resp.items ?? [];
+}
+
+function buildResult(name, rawAddress, picked, matchedBy) {
+  const { zipcode, address, gu, dong } = parseAddress(rawAddress);
+  const coords = naverCoordsToLatLng(picked.mapx, picked.mapy);
+  if (!coords) return null;
+  const cat = stripHtml(picked.category) || null;
+  const placeName = stripHtml(picked.title) || name;
+  const roadOrAddr = picked.roadAddress || picked.address || address;
+  const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(placeName + " " + roadOrAddr)}`;
+  return {
+    result: {
+      id: `${name}-${zipcode ?? "x"}-${dong}-${rawAddress.slice(-10)}`.replace(/\s+/g, ""),
+      name,
+      address: roadOrAddr,
+      zipcode,
+      gu,
+      dong,
+      lat: coords.lat,
+      lng: coords.lng,
+      category: cat,
+      categoryGroup: classifyCategory(cat, name),
+      phone: picked.telephone || null,
+      placeUrl,
+      externalLink: picked.link || null,
+    },
+    matchedBy,
+  };
+}
+
 async function enrichRow(row) {
   const { name, rawAddress } = row;
-  const { zipcode, address, gu, dong } = parseAddress(rawAddress);
+  const { address, gu, dong } = parseAddress(rawAddress);
+  const cleaned = cleanName(name);
+  const roadCore = roadAddressCore(rawAddress);
 
+  // Pass 1: name + dong (현재)
   try {
-    const q = encodeURIComponent(`${name} ${dong || gu || "성남"}`);
-    const url = `https://openapi.naver.com/v1/search/local.json?query=${q}&display=5&sort=random`;
-    const resp = await naverFetch(url);
-    const picked = pickBestItem(name, dong, resp.items ?? []);
+    const items = await searchNaver(`${name} ${dong || gu || "성남"}`);
+    const picked = pickBestItem(name, dong, items);
     if (picked) {
-      const coords = naverCoordsToLatLng(picked.mapx, picked.mapy);
-      if (coords) {
-        const cat = stripHtml(picked.category) || null;
-        const placeName = stripHtml(picked.title) || name;
-        const roadOrAddr = picked.roadAddress || picked.address || address;
-        // 네이버 지도 검색 URL — 식당 페이지로 메뉴/사진/리뷰가 보임
-        const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(placeName + " " + roadOrAddr)}`;
-        const r = {
-          id: `${name}-${zipcode ?? "x"}-${dong}-${rawAddress.slice(-10)}`.replace(/\s+/g, ""),
-          name,
-          address: roadOrAddr,
-          zipcode,
-          gu,
-          dong,
-          lat: coords.lat,
-          lng: coords.lng,
-          category: cat,
-          categoryGroup: classifyCategory(cat, name),
-          phone: picked.telephone || null,
-          placeUrl,
-          externalLink: picked.link || null,
-        };
-        return { result: r, matchedBy: "naver" };
-      }
+      const r = buildResult(name, rawAddress, picked, "naver");
+      if (r) return r;
     }
   } catch (e) {
-    console.warn(`naver fail "${name}": ${e.message}`);
+    console.warn(`pass1 fail "${name}": ${e.message}`);
+  }
+
+  // Pass 2: cleanedName + road address core
+  if (cleaned && roadCore) {
+    try {
+      const items = await searchNaver(`${cleaned} ${roadCore}`);
+      const picked = pickBestItem(cleaned, dong, items);
+      if (picked && nameSimilarEnough(cleaned, picked.title)) {
+        const r = buildResult(name, rawAddress, picked, "naver-cleaned");
+        if (r) return r;
+      }
+    } catch (e) {
+      console.warn(`pass2 fail "${name}": ${e.message}`);
+    }
+  }
+
+  // Pass 3: road address only (find item whose title resembles the name)
+  if (roadCore) {
+    try {
+      const items = await searchNaver(roadCore);
+      // 주소만으로 검색하면 같은 건물의 여러 업체가 나옴 → 이름 유사도로 강하게 거름
+      const candidate = items.find((it) =>
+        nameSimilarEnough(cleaned || name, it.title),
+      );
+      if (candidate) {
+        const r = buildResult(name, rawAddress, candidate, "naver-addr");
+        if (r) return r;
+      }
+    } catch (e) {
+      console.warn(`pass3 fail "${name}": ${e.message}`);
+    }
   }
 
   return { result: null, matchedBy: "none" };
@@ -196,10 +266,11 @@ async function main() {
   console.log(`Loaded ${rows.length} rows from CSV`);
 
   const cache = loadCache();
-  // 캐시에서 카카오로 된 항목은 무효화 (네이버로 새로 받아야 함)
+  // 매칭 안 된 항목(result null)은 재시도; 카카오로 받은 옛 캐시도 무효화
   for (const k of Object.keys(cache)) {
     const e = cache[k];
-    if (e.matchedBy !== "naver") delete cache[k];
+    if (!e.result) delete cache[k];
+    else if (!String(e.matchedBy).startsWith("naver")) delete cache[k];
   }
 
   const limit = pLimit(2);

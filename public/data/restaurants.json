@@ -930,6 +930,21 @@
     "externalLink": null
   },
   {
+    "id": "후토루(판교삼평점)_KIOSK-13494-삼평동-이치스퀘어에스동)",
+    "name": "후토루(판교삼평점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 231 지1층 B128호, B128-1호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4013028,
+    "lng": 127.1081558,
+    "category": "음식점>분식",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%9B%84%ED%86%A0%EB%A3%A8%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20%EC%A7%801%EC%B8%B5%20B128%ED%98%B8%2C%20B128-1%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "애니포(판교점)-13453-금토동-토동,트라이타워)",
     "name": "애니포(판교점)",
     "address": "경기도 성남시 수정구 금토로80번길 22 1층 115호",
@@ -1095,6 +1110,21 @@
     "externalLink": null
   },
   {
+    "id": "한마음정육식당(판교테크노밸리점)-13494-삼평동-0(삼평동)1층",
+    "name": "한마음 정육식당(판교테크노밸리점)",
+    "address": "경기도 성남시 분당구 대왕판교로 660 107호, 108호, 109호, 110호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4008564,
+    "lng": 127.106398,
+    "category": "음식점>한식>육류,고기요리",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%95%9C%EB%A7%88%EC%9D%8C%EC%A0%95%EC%9C%A1%EC%8B%9D%EB%8B%B9%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B2%A8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20660%20107%ED%98%B8%2C%20108%ED%98%B8%2C%20109%ED%98%B8%2C%20110%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "판교인생곱창-13524-삼평동-6(삼평동)1층",
     "name": "판교 인생곱창",
     "address": "경기도 성남시 분당구 판교역로192번길 16 판교타워 102, 103호",
@@ -1168,6 +1198,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%8E%98%EC%9D%B4%EB%94%A4%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20152%20%EC%95%8C%ED%8C%8C%EB%8F%94%ED%83%80%EC%9B%8C%202%EC%B8%B5",
     "externalLink": "https://app.catchtable.co.kr/ct/shop/peidim_pangyo"
+  },
+  {
+    "id": "델리커리(판교파미어스몰점)-13449-시흥동-2층210-1호",
+    "name": "델리커리(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 18 판교파미어스몰 P1동 2층 210-1호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4134038,
+    "lng": 127.0983341,
+    "category": "음식점>일식>카레",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8D%B8%EB%A6%AC%EC%BB%A4%EB%A6%AC%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2018%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%20P1%EB%8F%99%202%EC%B8%B5%20210-1%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "커스텀커피(삼평동점)-13494--701층121호",
@@ -1350,6 +1395,21 @@
     "externalLink": null
   },
   {
+    "id": "베이징스토리(판교점)-13493-삼평동-20-1,121호",
+    "name": "베이징스토리(판교점)",
+    "address": "경기도 성남시 분당구 판교역로 230",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4011917,
+    "lng": 127.110907,
+    "category": "중식>중식당",
+    "categoryGroup": "중식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%A7%95%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20230",
+    "externalLink": "http://beijingstory.co.kr/"
+  },
+  {
     "id": "프랭크버거(분당오리역점)-13637-구미동-미동,포인트타운)",
     "name": "프랭크버거(분당오리역점)",
     "address": "경기도 성남시 분당구 구미로 11 포인트타운 1층 111호",
@@ -1485,6 +1545,21 @@
     "externalLink": null
   },
   {
+    "id": "우동키노야(판교파미어스몰점)-13449-시흥동-2층207-2호",
+    "name": "우동키노야(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 17 D동 2층 207-2호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121406,
+    "lng": 127.0978131,
+    "category": "음식점>일식>우동,소바",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9A%B0%EB%8F%99%ED%82%A4%EB%85%B8%EC%95%BC%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20D%EB%8F%99%202%EC%B8%B5%20207-2%ED%98%B8",
+    "externalLink": "http://udonkinoya.com"
+  },
+  {
     "id": "일도씨닭갈비(판교점)-13529-백현동-레이츠판교지하1층",
     "name": "일도씨닭갈비(판교점)",
     "address": "경기도 성남시 분당구 분당내곡로 117 그레이츠판교 지하1층",
@@ -1543,6 +1618,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%A9%94%EC%9D%B4%ED%81%AC%EC%96%B4%EC%BC%80%EC%9D%B4%ED%81%AC%20%EC%95%84%EB%B8%8C%EB%89%B4%ED%94%84%EB%9E%91%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8F%99%ED%8C%90%EA%B5%90%EB%A1%9C177%EB%B2%88%EA%B8%B8%2025%20%EC%95%84%EB%B9%84%EB%89%B4%ED%94%84%EB%9E%91%ED%8C%90%EA%B5%90%EC%A0%90",
     "externalLink": "http://www.makeacake.co.kr"
+  },
+  {
+    "id": "CU(판교H스퀘어2호점)-13494-상평동-에이치스퀘어에스동)",
+    "name": "CU(판교H스퀘어2호점)",
+    "address": "경기도 성남시 분당구 판교역로 231",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "상평동",
+    "lat": 37.4012685,
+    "lng": 127.1086538,
+    "category": "생활,편의>편의점",
+    "categoryGroup": "편의점",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/CU%20%ED%8C%90%EA%B5%90H%EC%8A%A4%ED%80%98%EC%96%B42%ED%98%B8%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231",
+    "externalLink": "https://cu.bgfretail.com/"
   },
   {
     "id": "메이크어케이크_QR-13535-백현동-6(백현동)1층",
@@ -1738,6 +1828,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%97%A0%EB%B8%8C%EB%A1%9C%EB%8F%88%EA%B9%8C%EC%8A%A4%20%EB%B6%84%EB%8B%B9%EC%88%98%EB%82%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%99%A9%EC%83%88%EC%9A%B8%EB%A1%9C258%EB%B2%88%EA%B8%B8%2010-9%202%EC%B8%B5%20201%ED%98%B8",
     "externalLink": null
+  },
+  {
+    "id": "백소정(판교제2테크노밸리점)_KIOSK-13449-시흥동-판교글로벌비즈센터)",
+    "name": "백소정(판교제2테크노밸리점)_KIOSK",
+    "address": "경기도 성남시 수정구 창업로 43 1층",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4117516,
+    "lng": 127.0960916,
+    "category": "음식점>일식>일식당",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B0%B1%EC%86%8C%EC%A0%95%20%ED%8C%90%EA%B5%90%EC%A0%9C2%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2043%201%EC%B8%B5",
+    "externalLink": "https://baeksojeong.com/"
   },
   {
     "id": "마포갈비-13595-수내동-(수내동)113호",
@@ -1950,6 +2055,21 @@
     "externalLink": null
   },
   {
+    "id": "커피나인판교제2테크노밸리-13449-시흥동-(시흥동)106호",
+    "name": "커피나인 판교제2테크노밸리",
+    "address": "경기도 성남시 수정구 창업로 55 106호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4110978,
+    "lng": 127.0951016,
+    "category": "음식점>카페,디저트",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%BB%A4%ED%94%BC%EB%82%98%EC%9D%B8%20%ED%8C%90%EA%B5%90%EC%A0%9C2%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2055%20106%ED%98%B8",
+    "externalLink": "https://www.instagram.com/coffeenine_pangyo_2"
+  },
+  {
     "id": "비니투스판교-13525-삼평동-플레이스)230호",
     "name": "비니투스판교",
     "address": "경기도 성남시 분당구 동판교로177번길 25 230호",
@@ -2023,6 +2143,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B0%90%EC%84%B1%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90H%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20H%EC%8A%A4%ED%80%98%EC%96%B4%20S%EB%8F%99%201%EC%B8%B5%20117%ED%98%B8",
     "externalLink": "https://events.passorder.co.kr/100won-event-new"
+  },
+  {
+    "id": "롱웨이브커피_KIOSK-13493--A동1층114호",
+    "name": "롱웨이브커피_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 240 1층 114호",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4021113,
+    "lng": 127.1105401,
+    "category": "음식점>카페,디저트",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%A1%B1%EC%9B%A8%EC%9D%B4%EB%B8%8C%EC%BB%A4%ED%94%BC%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%201%EC%B8%B5%20114%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "바이브커피-13494-삼평동-(삼평동)110호",
@@ -2175,6 +2310,21 @@
     "externalLink": "https://100원커피이벤트-선착순주문하기.com"
   },
   {
+    "id": "오지(OG)버거판교1호점-13449-시흥동-1층102-1호",
+    "name": "오지(OG)버거 판교1호점",
+    "address": "경기도 성남시 수정구 창업로 17 B동 1층 102-1호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "음식점>햄버거",
+    "categoryGroup": "패스트푸드",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%98%A4%EC%A7%80%EB%B2%84%EA%B1%B0%20%ED%8C%90%EA%B5%901%ED%98%B8%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20B%EB%8F%99%201%EC%B8%B5%20102-1%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "다께야(수내역점)-13595-수내동-2(수내동)1층",
     "name": "다께야(수내역점)",
     "address": "경기도 성남시 분당구 황새울로200번길 22 101호, 102호, 103-1호",
@@ -2295,6 +2445,21 @@
     "externalLink": null
   },
   {
+    "id": "하동곰탕(화수분)-13493-삼평동-삼평동)지하1층",
+    "name": "하동곰탕(화수분)",
+    "address": "경기도 성남시 분당구 판교역로 230",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4011343,
+    "lng": 127.1105771,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%95%98%EB%8F%99%EA%B3%B0%ED%83%95%EB%8B%A4%EB%8F%99%EB%B6%81%EC%97%87%EA%B5%AD%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20230",
+    "externalLink": null
+  },
+  {
     "id": "차엔프리미엄-13494-삼평동-평동,유스페이스1)",
     "name": "차엔 프리미엄",
     "address": "경기도 성남시 분당구 대왕판교로 660 유스페이스1 지하1층 A동 104호, 105호",
@@ -2353,6 +2518,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B0%95%EC%88%9C%EC%9E%90%EC%98%9B%EB%A7%9B%EA%B9%80%EC%B9%98%EC%B0%8C%EA%B0%9C%20%EC%88%98%EB%82%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%99%A9%EC%83%88%EC%9A%B8%EB%A1%9C200%EB%B2%88%EA%B8%B8%209-7%201%EC%B8%B5%20101-1%ED%98%B8",
     "externalLink": "https://www.gangfood.co.kr/"
+  },
+  {
+    "id": "1992덮밥&짜글이(판교파미어스몰점)_KIOSK-13449--2층203-2호",
+    "name": "1992덮밥&짜글이(판교파미어스몰점)_KIOSK",
+    "address": "경기도 성남시 수정구 창업로 17 A동 2층 203-2호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "",
+    "lat": 37.4121406,
+    "lng": 127.0978131,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/1992%EB%8D%AE%EB%B0%A5%26%EC%A7%9C%EA%B8%80%EC%9D%B4%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20A%EB%8F%99%202%EC%B8%B5%20203-2%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "미소집-13595-수내동-피스텔1층미소집",
@@ -2430,6 +2610,21 @@
     "externalLink": null
   },
   {
+    "id": "파파존스(판교2테크노밸리점)-13449-시흥동-B102호파파존스",
+    "name": "파파존스(판교2테크노밸리점)",
+    "address": "경기도 성남시 수정구 창업로 17 B102호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121406,
+    "lng": 127.0978131,
+    "category": "음식점>피자",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%8C%8C%ED%8C%8C%EC%A1%B4%EC%8A%A4%20%ED%8C%90%EA%B5%902%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20B102%ED%98%B8",
+    "externalLink": "https://www.instagram.com/papajohnskr"
+  },
+  {
     "id": "오장동흥남집(판교점)-13525-삼평동-플레이스)106호",
     "name": "오장동흥남집(판교점)",
     "address": "경기도 성남시 분당구 동판교로177번길 25 1층 106호",
@@ -2442,6 +2637,36 @@
     "categoryGroup": "한식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%98%A4%EC%9E%A5%EB%8F%99%ED%9D%A5%EB%82%A8%EC%A7%91%20%EC%95%84%EB%B8%8C%EB%89%B4%ED%94%84%EB%9E%91%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8F%99%ED%8C%90%EA%B5%90%EB%A1%9C177%EB%B2%88%EA%B8%B8%2025%201%EC%B8%B5%20106%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "북창동순두부(판교파미어스몰점)-13449-시흥동-)P1동209호",
+    "name": "북창동순두부(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 18 파미어스몰 P1동 209호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4134038,
+    "lng": 127.0983341,
+    "category": "한식>두부요리",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B6%81%EC%B0%BD%EB%8F%99%EC%88%9C%EB%91%90%EB%B6%80%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2018%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%20P1%EB%8F%99%20209%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "빤닭빤닭(판교점)-13449-시흥동-1동1층117호",
+    "name": "빤닭빤닭(판교점)",
+    "address": "경기도 성남시 수정구 창업로 18 판교제2테크노밸리 C1동 1층 117호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4132094,
+    "lng": 127.0986046,
+    "category": "한식>닭갈비",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B9%A4%EB%8B%AD%EB%B9%A4%EB%8B%AD%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2018%20%ED%8C%90%EA%B5%90%EC%A0%9C2%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%20C1%EB%8F%99%201%EC%B8%B5%20117%ED%98%B8",
     "externalLink": null
   },
   {
@@ -2475,6 +2700,21 @@
     "externalLink": null
   },
   {
+    "id": "바디쉐프(판교점)-13449-시흥동-3층301-3호",
+    "name": "바디쉐프(판교점)",
+    "address": "경기도 성남시 수정구 창업로 17 B동 3층 301-3호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4122733,
+    "lng": 127.0975951,
+    "category": "도시락,컵밥>다이어트,샐러드",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B0%94%EB%94%94%EC%89%90%ED%94%84%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20B%EB%8F%99%203%EC%B8%B5%20301-3%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "버거옥(판교역점)-13529-백현동-8(백현동)1층",
     "name": "버거옥(판교역점)",
     "address": "경기도 성남시 분당구 판교역로 138 1층",
@@ -2503,6 +2743,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%83%90%EB%9F%AC%EB%94%94%20%ED%8C%90%EA%B5%90%EB%8F%84%EC%8B%9C%EC%B2%A8%EB%8B%A8%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EA%B8%88%ED%86%A0%EB%A1%9C80%EB%B2%88%EA%B8%B8%2051%20%ED%8C%90%EA%B5%90%EC%9C%84%EB%84%88%EC%8A%A4%EC%97%90%EB%B9%84%EB%89%B4%201%EC%B8%B5%20105%ED%98%B8",
     "externalLink": "http://www.salady.com/"
+  },
+  {
+    "id": "판교제일순대국-13449-시흥동-동)B동108호",
+    "name": "판교 제일 순대국",
+    "address": "경기도 성남시 수정구 창업로 43",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4116211,
+    "lng": 127.0961613,
+    "category": "한식>순대,순댓국",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%8C%90%EA%B5%90%20%EC%A0%9C%EC%9D%BC%EC%88%9C%EB%8C%80%EA%B5%AD%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2043",
+    "externalLink": null
   },
   {
     "id": "차엔-13494-삼평동-평동,에이치스퀘어)",
@@ -2697,6 +2952,21 @@
     "categoryGroup": "카페·디저트",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EB%A7%88%EC%9D%B4%ED%8B%B0%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EB%A1%9C%2013%20%EC%9B%94%EB%93%9C%EB%B9%84%ED%84%B0%EB%B9%8C%EB%94%A9%20109%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "매머드익스프레스(분당두산타워점)-13558--8,1층107호",
+    "name": "매머드익스프레스(분당두산타워점)",
+    "address": "경기도 성남시 분당구 정자일로 158 110호",
+    "zipcode": "13558",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3642846,
+    "lng": 127.1061434,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%A7%A4%EB%A8%B8%EB%93%9C%EC%9D%B5%EC%8A%A4%ED%94%84%EB%A0%88%EC%8A%A4%20%EB%B6%84%EB%8B%B9%EC%A0%95%EC%9E%90%EB%91%90%EC%82%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20158%20110%ED%98%B8",
     "externalLink": null
   },
   {
@@ -3000,6 +3270,21 @@
     "externalLink": "https://app.catchtable.co.kr/ct/shop/moonmakzip"
   },
   {
+    "id": "보배반점(판교테크노밸리점)-13493--A동128호1층",
+    "name": "보배반점(판교테크노밸리점)",
+    "address": "경기도 성남시 분당구 판교역로 240 1층 128호",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4022705,
+    "lng": 127.110219,
+    "category": "음식점>중식당",
+    "categoryGroup": "중식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B3%B4%EB%B0%B0%EB%B0%98%EC%A0%90%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%201%EC%B8%B5%20128%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "락앤웍-13494--에스동B107호",
     "name": "락앤웍",
     "address": "경기도 성남시 분당구 판교역로 231 에이치스퀘어 에스동",
@@ -3060,6 +3345,21 @@
     "externalLink": "https://catchtable.co.kr/story_two_official"
   },
   {
+    "id": "엠에스생감자치킨_KIOSK-12345-삼평동-이펙스B동103호",
+    "name": "엠에스생감자치킨_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 230 삼환하이펙스 B동 103호",
+    "zipcode": "12345",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4012225,
+    "lng": 127.1105085,
+    "category": "음식점>치킨,닭강정",
+    "categoryGroup": "패스트푸드",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/MS%EC%83%9D%EA%B0%90%EC%9E%90%EC%B9%98%ED%82%A8%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20230%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4%20B%EB%8F%99%20103%ED%98%B8",
+    "externalLink": "https://blog.naver.com/momschick"
+  },
+  {
     "id": "크레스타운(판교점)-13524--105호,106호",
     "name": "크레스타운(판교점)",
     "address": "경기도 성남시 분당구 판교역로192번길 12 1층 105호, 106호",
@@ -3072,6 +3372,21 @@
     "categoryGroup": "카페·디저트",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%81%AC%EB%A0%88%EC%8A%A4%ED%83%80%EC%9A%B4%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C192%EB%B2%88%EA%B8%B8%2012%201%EC%B8%B5%20105%ED%98%B8%2C%20106%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "아워홈(분당두산타워_C코너점)-13557-정자동-자동,분당두산타원)",
+    "name": "아워홈(분당두산타워_C코너점)",
+    "address": "경기도 성남시 분당구 정자일로 155 분당두산타워",
+    "zipcode": "13557",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3641014,
+    "lng": 127.1054054,
+    "category": "음식>급식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EC%9B%8C%ED%99%88%20%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C%EB%B6%84%EB%8B%B9%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20155%20%EB%B6%84%EB%8B%B9%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C",
     "externalLink": null
   },
   {
@@ -3135,6 +3450,21 @@
     "externalLink": "http://optionspecialtycoffee.com"
   },
   {
+    "id": "아워홈(분당두산타워_B코너점)-13557-정자동-자동,분당두산타원)",
+    "name": "아워홈(분당두산타워_B코너점)",
+    "address": "경기도 성남시 분당구 정자일로 155 분당두산타워",
+    "zipcode": "13557",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3641014,
+    "lng": 127.1054054,
+    "category": "음식>급식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EC%9B%8C%ED%99%88%20%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C%EB%B6%84%EB%8B%B9%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20155%20%EB%B6%84%EB%8B%B9%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C",
+    "externalLink": null
+  },
+  {
     "id": "양재식당(판교점)-13524--51삼평동,1층",
     "name": "양재식당(판교점)",
     "address": "경기도 성남시 분당구 분당내곡로 151 1층",
@@ -3195,6 +3525,36 @@
     "externalLink": "http://paikdabang.com/"
   },
   {
+    "id": "아워홈(분당두산타워_A코너점)-13557-정자동-자동,분당두산타원)",
+    "name": "아워홈(분당두산타워_A코너점)",
+    "address": "경기도 성남시 분당구 정자일로 155 분당두산타워",
+    "zipcode": "13557",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3641014,
+    "lng": 127.1054054,
+    "category": "음식>급식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EC%9B%8C%ED%99%88%20%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C%EB%B6%84%EB%8B%B9%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20155%20%EB%B6%84%EB%8B%B9%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C",
+    "externalLink": null
+  },
+  {
+    "id": "뚜레쥬르(판교파미어스몰점)-13449-시흥동-미어스몰103-2",
+    "name": "뚜레쥬르(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 17 B동 103-2호 (시흥동, 판교아이스퀘어)",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "카페,디저트>베이커리",
+    "categoryGroup": "베이커리",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%9A%9C%EB%A0%88%EC%A5%AC%EB%A5%B4%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20B%EB%8F%99%20103-2%ED%98%B8%20(%EC%8B%9C%ED%9D%A5%EB%8F%99%2C%20%ED%8C%90%EA%B5%90%EC%95%84%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4)",
+    "externalLink": null
+  },
+  {
     "id": "밥이랑커피랑-13530--움2단지,지하1층",
     "name": "밥이랑커피랑",
     "address": "경기도 성남시 분당구 판교역로 145 지1층 B145호",
@@ -3223,6 +3583,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%86%A1%EC%B6%94%EA%B0%80%EB%A7%88%EA%B3%A8%20%EC%9D%B8%EC%96%B4%EB%B0%98%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20145%20%EC%95%8C%ED%8C%8C%EB%A6%AC%EC%9B%80%20%EB%9D%BC%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8%202%EB%8F%99%202%EC%B8%B5%20%EC%86%A1%EC%B6%94%EA%B0%80%EB%A7%88%EA%B3%A8%20%EC%9D%B8%EC%96%B4%EB%B0%98",
     "externalLink": "https://blog.naver.com/scgamagoll/"
+  },
+  {
+    "id": "JVL부대찌개(판교아이스퀘어점)-13449-시흥동-2층206-3호",
+    "name": "JVL부대찌개(판교아이스퀘어점)",
+    "address": "경기도 성남시 수정구 창업로 17 E동 2층 206-3호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "한식>찌개,전골",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/JVL%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C%20%ED%8C%90%EA%B5%90%EC%95%84%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20E%EB%8F%99%202%EC%B8%B5%20206-3%ED%98%B8",
+    "externalLink": "https://blog.naver.com/jvl_boodae_stew"
   },
   {
     "id": "1,2,3카페-13558-정자동-101호(정자동)",
@@ -3268,6 +3643,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%9D%A0%EC%95%84%EB%AA%A8%ED%94%8C%EB%9D%BC%EC%9B%8C%26%EC%BB%A4%ED%94%BC%EB%8D%B0%EC%9D%B4%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C606%EB%B2%88%EA%B8%B8%2010%20%EB%9D%BC%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8%EC%83%81%EA%B0%80%201%EC%B8%B5%20110%ED%98%B8",
     "externalLink": "http://blog.naver.com/tiamoflowercafe"
+  },
+  {
+    "id": "닭갈비야(판교점)-12345--지하1층114호",
+    "name": "닭갈비야(판교점)",
+    "address": "경기도 성남시 분당구 대왕판교로 670 B동 지하1층 114호",
+    "zipcode": "12345",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4019436,
+    "lng": 127.1072739,
+    "category": "한식>닭갈비",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8B%AD%EA%B0%88%EB%B9%84%EC%95%BC%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20B%EB%8F%99%20%EC%A7%80%ED%95%981%EC%B8%B5%20114%ED%98%B8",
+    "externalLink": "https://www.instagram.com/dakgalbi_ya"
   },
   {
     "id": "일로집(판교직영점)-13524-삼평동-평동,판교예미지)",
@@ -3330,6 +3720,21 @@
     "externalLink": null
   },
   {
+    "id": "김치도가(판교테크노밸리점)-13494--이펙스A동B104",
+    "name": "김치도가(판교테크노밸리점)",
+    "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스 A동 B104호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4022945,
+    "lng": 127.1103577,
+    "category": "한식>찌개,전골",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EA%B9%80%EC%B9%98%EB%8F%84%EA%B0%80%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4%20A%EB%8F%99%20B104%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "할리스커피(동판교M타워점)-13494--커피동판교M타워점",
     "name": "할리스커피(동판교M타워점)",
     "address": "경기도 성남시 분당구 판교역로241번길 22",
@@ -3375,6 +3780,21 @@
     "externalLink": "https://이가네양꼬치.kr"
   },
   {
+    "id": "홍호아(판교점)_KIOSK-13494-삼평동-114호(삼평동)",
+    "name": "홍호아(판교점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 231 H스퀘어 S동 B1층 114호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4011529,
+    "lng": 127.1093172,
+    "category": "음식점>베트남음식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%99%8D%ED%98%B8%EC%95%84%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20H%EC%8A%A4%ED%80%98%EC%96%B4%20S%EB%8F%99%20B1%EC%B8%B5%20114%ED%98%B8",
+    "externalLink": "https://www.instagram.com/honghoa_3651?igsh=MXBzYWh0aDkyMWc1aw%3D%3D&utm_source=qr"
+  },
+  {
     "id": "백소정(판교점)-13493-삼평동-삼환하이펙스A동)",
     "name": "백소정(판교점)",
     "address": "경기도 성남시 분당구 판교역로 240 109,110호 백소정 판교점",
@@ -3418,6 +3838,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%B4%89%EC%B6%94%EC%B0%9C%EB%8B%AD%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%202%EC%B8%B5%20219%ED%98%B8%20%EB%B4%89%EC%B6%94%EC%B0%9C%EB%8B%AD",
     "externalLink": "http://www.bongchu.com/"
+  },
+  {
+    "id": "자연횟집(판교점)-13494--에이치스퀘어엔동",
+    "name": "자연횟집(판교점)",
+    "address": "경기도 성남시 분당구 판교역로 235 H스퀘어 N동 123호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.402157,
+    "lng": 127.1090437,
+    "category": "한식>생선회",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%ED%9A%9F%EC%A7%91%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20235%20H%EC%8A%A4%ED%80%98%EC%96%B4%20N%EB%8F%99%20123%ED%98%B8",
+    "externalLink": "https://blog.naver.com/jayeon_seafood"
+  },
+  {
+    "id": "아워홈(분당두산타워_D코너점)-13557-정자동-자동,분당두산타원)",
+    "name": "아워홈(분당두산타워_D코너점)",
+    "address": "경기도 성남시 분당구 정자일로 155 분당두산타워",
+    "zipcode": "13557",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3641014,
+    "lng": 127.1054054,
+    "category": "음식>급식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EC%9B%8C%ED%99%88%20%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C%EB%B6%84%EB%8B%B9%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20155%20%EB%B6%84%EB%8B%B9%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C",
+    "externalLink": null
   },
   {
     "id": "까몬(판교아브뉴프랑점)-13525-삼평동-반써밋플레이스)",
@@ -3943,6 +4393,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%8D%94%ED%83%80%EC%BD%94%EB%B6%80%EC%8A%A4%20%EB%B6%84%EB%8B%B9%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C606%EB%B2%88%EA%B8%B8%2058%20%ED%8C%90%EA%B5%90%ED%91%B8%EB%A5%B4%EC%A7%80%EC%98%A4%EC%9B%94%EB%93%9C%EB%A7%88%ED%81%AC%201-65%ED%98%B8",
     "externalLink": "https://thetacobooth.com/"
+  },
+  {
+    "id": "등촌샤브칼국수(판교대장점)-13544-대장동-9(대장동)1층",
+    "name": "등촌샤브칼국수(판교대장점)",
+    "address": "경기도 성남시 분당구 판교대장로7길 6-19 1층",
+    "zipcode": "13544",
+    "gu": "분당구",
+    "dong": "대장동",
+    "lat": 37.3716335,
+    "lng": 127.069449,
+    "category": "음식점>한식>칼국수,만두",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%93%B1%EC%B4%8C%EC%83%A4%EB%B8%8C%EC%B9%BC%EA%B5%AD%EC%88%98%20%EB%8C%80%EC%9E%A5%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EB%8C%80%EC%9E%A5%EB%A1%9C7%EA%B8%B8%206-19%201%EC%B8%B5",
+    "externalLink": null
   },
   {
     "id": "카페루시에-13594-수내동-9-2호카페루시에",
@@ -4530,6 +4995,21 @@
     "externalLink": "http://www.instagram.com/soosoocoffee"
   },
   {
+    "id": "요거트퍼플(판교역점)_KIOSK-13529--,1층1088호",
+    "name": "요거트퍼플(판교역점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 136 1층 1088호",
+    "zipcode": "13529",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3924916,
+    "lng": 127.1104534,
+    "category": "음식점>카페,디저트>아이스크림",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9A%94%EA%B1%B0%ED%8A%B8%ED%8D%BC%ED%94%8C%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20136%201%EC%B8%B5%201088%ED%98%B8",
+    "externalLink": "https://100원커피이벤트-선착순주문하기.com"
+  },
+  {
     "id": "아웃백(판교점)-13529--지하1층백현동",
     "name": "아웃백(판교점)",
     "address": "경기도 성남시 분당구 분당내곡로 131 판교테크원 지하 1층 아웃백스테이크하우스",
@@ -4665,6 +5145,21 @@
     "externalLink": null
   },
   {
+    "id": "담소소사골순대육개장(판교4호점)-13449-시흥동-2층207-3호",
+    "name": "담소소사골순대육개장(판교4호점)",
+    "address": "경기도 성남시 수정구 창업로 17 파미어스몰2 2층 207-3호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "육류,고기요리>순대,순댓국",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8B%B4%EC%86%8C%EC%86%8C%EC%82%AC%EA%B3%A8%EC%88%9C%EB%8C%80%EC%9C%A1%EA%B0%9C%EC%9E%A5%20%ED%8C%90%EA%B5%904%ED%98%B8(%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0)%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B02%202%EC%B8%B5%20207-3%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "청년다방(판교테크노밸리점)-13494--평동,유스페이스1",
     "name": "청년다방(판교테크노밸리점)",
     "address": "경기도 성남시 분당구 대왕판교로 660 유스페이스1 A동 206호",
@@ -4695,6 +5190,21 @@
     "externalLink": "https://instagram.com/saladcafe_para?utm_medium=copy_link"
   },
   {
+    "id": "서호돈가스(판교H스퀘어점)-13494--스동1층124호",
+    "name": "서호돈가스(판교H스퀘어점)",
+    "address": "경기도 성남시 분당구 판교역로 231 에이치스퀘어 에스동 124호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4013231,
+    "lng": 127.1086567,
+    "category": "음식점>일식>돈가스",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%84%9C%ED%98%B8%EB%8F%88%EA%B0%80%EC%8A%A4%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20%EC%97%90%EC%9D%B4%EC%B9%98%EC%8A%A4%ED%80%98%EC%96%B4%20%EC%97%90%EC%8A%A4%EB%8F%99%20124%ED%98%B8",
+    "externalLink": "https://goo.gl/szYxHP"
+  },
+  {
     "id": "피자헛(남한산성2호점)-x--구금광동4842",
     "name": "피자헛(남한산성2호점)",
     "address": "경기도 성남시 중원구 산성대로472번길 1",
@@ -4708,6 +5218,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%94%BC%EC%9E%90%ED%97%9B%20%EB%82%A8%ED%95%9C%EC%82%B0%EC%84%B12%ED%98%B8%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%A4%91%EC%9B%90%EA%B5%AC%20%EC%82%B0%EC%84%B1%EB%8C%80%EB%A1%9C472%EB%B2%88%EA%B8%B8%201",
     "externalLink": "http://www.pizzahut.co.kr/"
+  },
+  {
+    "id": "우리한우곰탕-13544-대장동-6(대장동)1층",
+    "name": "우리한우곰탕",
+    "address": "경기도 성남시 분당구 판교대장로7길 16-6 1층",
+    "zipcode": "13544",
+    "gu": "분당구",
+    "dong": "대장동",
+    "lat": 37.3716269,
+    "lng": 127.0687837,
+    "category": "한식>곰탕,설렁탕",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9A%B0%EB%A6%AC%ED%95%9C%EC%9A%B0%EA%B3%B0%ED%83%95%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EB%8C%80%EC%9E%A5%EB%A1%9C7%EA%B8%B8%2016-6%201%EC%B8%B5",
+    "externalLink": null
+  },
+  {
+    "id": "베러먼데이(판교테크노벨리점)-13494-삼평동-에이치스퀘어엔동)",
+    "name": "베러먼데이(판교테크노벨리점)",
+    "address": "경기도 성남시 분당구 판교역로 235 119호 베러먼데이",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4020281,
+    "lng": 127.108652,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B2%A0%EB%9F%AC%EB%A8%BC%EB%8D%B0%EC%9D%B4%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20235%20119%ED%98%B8%20%EB%B2%A0%EB%9F%AC%EB%A8%BC%EB%8D%B0%EC%9D%B4",
+    "externalLink": "https://blog.naver.com/bmdrink"
   },
   {
     "id": "율리아테이블-13486-삼평동-평동)1층105호",
@@ -5070,6 +5610,21 @@
     "externalLink": null
   },
   {
+    "id": "중경별곡마라탕샹궈_KIOSK-13494-삼평동-동,유스페이스2)",
+    "name": "중경별곡마라탕샹궈_KIOSK",
+    "address": "경기도 성남시 분당구 대왕판교로 670 유스페이스2 2층 222호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4020287,
+    "lng": 127.1066516,
+    "category": "중식>중식당",
+    "categoryGroup": "중식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%A4%91%EA%B2%BD%EB%B3%84%EA%B3%A1%EB%A7%88%EB%9D%BC%ED%83%95%EC%83%81%EA%B6%88%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A42%202%EC%B8%B5%20222%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "군산오징어(우림더블유시티점)-13486--9-22214호",
     "name": "군산오징어(우림더블유시티점)",
     "address": "경기도 성남시 분당구 판교로255번길 9-22 2층",
@@ -5115,6 +5670,21 @@
     "externalLink": "http://www.paris.co.kr/"
   },
   {
+    "id": "메가MGC커피(제2테크노밸리점)-13449-시흥동-104호(시흥동)",
+    "name": "메가MGC커피(제2테크노밸리점)",
+    "address": "경기도 성남시 수정구 창업로 43 A동 104호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4116986,
+    "lng": 127.0961733,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%A9%94%EA%B0%80MGC%EC%BB%A4%ED%94%BC%20%EC%A0%9C2%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2043%20A%EB%8F%99%20104%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "아티제(판교역점)-13529--크래프톤타워1층",
     "name": "아티제(판교역점)",
     "address": "경기도 성남시 분당구 분당내곡로 117 그레이츠 판교 1층",
@@ -5128,6 +5698,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%A0%9C%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%B6%84%EB%8B%B9%EB%82%B4%EA%B3%A1%EB%A1%9C%20117%20%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%B8%A0%20%ED%8C%90%EA%B5%90%201%EC%B8%B5",
     "externalLink": "https://www.cafeartisee.com/"
+  },
+  {
+    "id": "엽기떡볶이(신흥역점)(오더)-13344--시민로1351층",
+    "name": "엽기떡볶이(신흥역점)(오더)",
+    "address": "경기도 성남시 수정구 시민로 135 1층",
+    "zipcode": "13344",
+    "gu": "수정구",
+    "dong": "",
+    "lat": 37.4401358,
+    "lng": 127.1440237,
+    "category": "음식점>분식",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EC%8B%A0%ED%9D%A5%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%8B%9C%EB%AF%BC%EB%A1%9C%20135%201%EC%B8%B5",
+    "externalLink": "https://blog.naver.com/ddm_yupdduk"
+  },
+  {
+    "id": "빽다방(판교유스페이스점)(오더)-13494-삼평동-동)1층134호",
+    "name": "빽다방(판교유스페이스점)(오더)",
+    "address": "경기도 성남시 분당구 대왕판교로 660 유스페이스 1층 134호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.400142,
+    "lng": 127.1074981,
+    "category": "카페,디저트>테이크아웃커피",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%ED%8C%90%EA%B5%90%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20660%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%201%EC%B8%B5%20134%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "샐러디(판교도시첨단점)(오더)-13453-금토동-동)1층105호",
@@ -5175,6 +5775,21 @@
     "externalLink": "http://paikdabang.com/"
   },
   {
+    "id": "엽기떡볶이(성남산성점)(오더)-13261-신흥동-(신흥동)107호",
+    "name": "엽기떡볶이(성남산성점)(오더)",
+    "address": "경기도 성남시 수정구 희망로 551 1층 107호 동대문엽기떡볶이 성남산성점",
+    "zipcode": "13261",
+    "gu": "수정구",
+    "dong": "신흥동",
+    "lat": 37.4516816,
+    "lng": 127.1497105,
+    "category": "음식점>분식",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EC%84%B1%EB%82%A8%EC%82%B0%EC%84%B1%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%ED%9D%AC%EB%A7%9D%EB%A1%9C%20551%201%EC%B8%B5%20107%ED%98%B8%20%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EC%84%B1%EB%82%A8%EC%82%B0%EC%84%B1%EC%A0%90",
+    "externalLink": "https://blog.naver.com/ddm_yupdduk"
+  },
+  {
     "id": "샐러디(수내점)(오더)-13595-수내동-동)1층104호",
     "name": "샐러디(수내점)(오더)",
     "address": "경기도 성남시 분당구 황새울로200번길 9-7 104호",
@@ -5188,6 +5803,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%83%90%EB%9F%AC%EB%94%94%20%EC%88%98%EB%82%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%99%A9%EC%83%88%EC%9A%B8%EB%A1%9C200%EB%B2%88%EA%B8%B8%209-7%20104%ED%98%B8",
     "externalLink": "http://www.salady.com/"
+  },
+  {
+    "id": "빽다방(강릉중앙시장점)(오더)-25543-성남동-1(성남동)1층",
+    "name": "빽다방(강릉중앙시장점)(오더)",
+    "address": "강원특별자치도 강릉시 금성로 23-1 1층",
+    "zipcode": "25543",
+    "gu": "",
+    "dong": "성남동",
+    "lat": 37.7538119,
+    "lng": 128.8979355,
+    "category": "카페,디저트>테이크아웃커피",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%EA%B0%95%EB%A6%89%EC%A4%91%EC%95%99%EC%8B%9C%EC%9E%A5%EC%A0%90%20%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B8%88%EC%84%B1%EB%A1%9C%2023-1%201%EC%B8%B5",
+    "externalLink": null
   },
   {
     "id": "빽다방(수내역초림점)(오더)-x--초림프라자119호",
@@ -5940,6 +6570,21 @@
     "externalLink": null
   },
   {
+    "id": "샐러드SLB(판교역점)_KIOSK-13529--152B1층일부",
+    "name": "샐러드SLB(판교역점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 152 지하1층 SLB샐러드 판교역점",
+    "zipcode": "13529",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3942126,
+    "lng": 127.1102892,
+    "category": "도시락,컵밥>다이어트,샐러드",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/SLB%EC%83%90%EB%9F%AC%EB%93%9C%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20152%20%EC%A7%80%ED%95%981%EC%B8%B5%20SLB%EC%83%90%EB%9F%AC%EB%93%9C%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90",
+    "externalLink": "https://slbslb.com/"
+  },
+  {
     "id": "토마토김밥판교역점-13529--로136지하2층",
     "name": "토마토김밥 판교역점",
     "address": "경기도 성남시 분당구 판교역로 136 B2 2128호",
@@ -6013,6 +6658,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%95%98%EC%98%A4%EB%A7%88%EB%9D%BC%20%EC%98%A4%EB%A6%AC%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EA%B5%AC%EB%AF%B8%EB%A1%9C9%EB%B2%88%EA%B8%B8%207%201%EC%B8%B5%20101%ED%98%B8%2C102%ED%98%B8",
     "externalLink": "http://haomara.cityfood.co.kr/"
+  },
+  {
+    "id": "백야드(테크원점)-13529--지하2층B250호",
+    "name": "백야드(테크원점)",
+    "address": "경기도 성남시 분당구 분당내곡로 131 판교 테크원 지하1층",
+    "zipcode": "13529",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3954525,
+    "lng": 127.1121495,
+    "category": "골프연습장>실내골프연습장",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B0%B1%EC%95%BC%EB%93%9C%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%B6%84%EB%8B%B9%EB%82%B4%EA%B3%A1%EB%A1%9C%20131%20%ED%8C%90%EA%B5%90%20%ED%85%8C%ED%81%AC%EC%9B%90%20%EC%A7%80%ED%95%981%EC%B8%B5",
+    "externalLink": "https://www.instagram.com/backyard.__.official/"
+  },
+  {
+    "id": "야미카츠(본점)-13449-시흥동-판교창조경제밸리)",
+    "name": "야미카츠(본점)",
+    "address": "경기도 성남시 수정구 대왕판교로 815 파미어스몰 기업지원허브상가동 106호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4129242,
+    "lng": 127.099649,
+    "category": "음식점>일식>돈가스",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%BC%EB%AF%B8%EC%B9%B4%EC%B8%A0%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20815%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%20%EA%B8%B0%EC%97%85%EC%A7%80%EC%9B%90%ED%97%88%EB%B8%8C%EC%83%81%EA%B0%80%EB%8F%99%20106%ED%98%B8",
+    "externalLink": "http://yummykatsu.com"
   },
   {
     "id": "가마솥순대국밥(분당오리역점)-13637-구미동-분당대맥주차빌딩)",
@@ -6195,6 +6870,21 @@
     "externalLink": "https://www.ehyundai.com/newPortal/DP/DP000000_V.do?branchCd=B00148000"
   },
   {
+    "id": "앤쏠로지커피_KIOSK-13494--페이스1,131호",
+    "name": "앤쏠로지커피_KIOSK",
+    "address": "경기도 성남시 분당구 대왕판교로 660 유스페이스1 A동 131호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4001293,
+    "lng": 127.1068863,
+    "category": "카페,디저트>테이크아웃커피",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%A4%EC%8F%A0%EB%A1%9C%EC%A7%80%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20660%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A41%20A%EB%8F%99%20131%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "우리동네김밥(정자점본점)-13556--202동106호",
     "name": "우리동네김밥(정자점본점)",
     "address": "경기도 성남시 분당구 정자일로213번길 19",
@@ -6327,6 +7017,21 @@
     "categoryGroup": "한식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%95%B4%EB%8F%84%EB%9D%BD%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20235%20%EC%97%90%EC%9D%B4%EC%B9%98%EC%8A%A4%ED%80%98%EC%96%B4%20%EC%97%94%EB%8F%99%201%EC%B8%B5%20130-131%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "더진국(판교파미어스몰점)-13449-시흥동-판교아이스퀘어)",
+    "name": "더진국(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 18 2층 202-2호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4134038,
+    "lng": 127.0983341,
+    "category": "한식>국밥",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8D%94%EC%A7%84%EA%B5%AD%20%EC%88%98%EC%9C%A1%EA%B5%AD%EB%B0%A5%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2018%202%EC%B8%B5%20202-2%ED%98%B8",
     "externalLink": null
   },
   {
@@ -6540,6 +7245,21 @@
     "externalLink": null
   },
   {
+    "id": "아워홈(분당두산타워_테이크아웃점)-13557-정자동-자동,분당두산타원)",
+    "name": "아워홈(분당두산타워_테이크아웃점)",
+    "address": "경기도 성남시 분당구 정자일로 155 분당두산타워",
+    "zipcode": "13557",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3641014,
+    "lng": 127.1054054,
+    "category": "음식>급식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EC%9B%8C%ED%99%88%20%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C%EB%B6%84%EB%8B%B9%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20155%20%EB%B6%84%EB%8B%B9%EB%91%90%EC%82%B0%ED%83%80%EC%9B%8C",
+    "externalLink": null
+  },
+  {
     "id": "구우트-13494-삼평동-동,유스페이스2)",
     "name": "구우트",
     "address": "경기도 성남시 분당구 대왕판교로 670 유스페이스2 A동 지하1층, 건물 밖",
@@ -6553,6 +7273,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B5%AC%EC%9A%B0%ED%8A%B8%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A42%20A%EB%8F%99%20%EC%A7%80%ED%95%981%EC%B8%B5%2C%20%EA%B1%B4%EB%AC%BC%20%EB%B0%96",
     "externalLink": "https://app.catchtable.co.kr/ct/shop/guut_official"
+  },
+  {
+    "id": "일류(판교점)-13494-삼평동-동,유스페이스2)",
+    "name": "일류(판교점)",
+    "address": "경기도 성남시 분당구 대왕판교로 670 A 210호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4021393,
+    "lng": 127.106652,
+    "category": "술집>이자카야",
+    "categoryGroup": "술집",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9D%BC%EB%A5%98%20%ED%8C%90%EA%B5%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20A%20210%ED%98%B8",
+    "externalLink": "https://blog.naver.com/s33331"
   },
   {
     "id": "공차(판교테크노밸리점)-13494--이스1층116호",
@@ -6630,6 +7365,21 @@
     "externalLink": "https://smartstore.naver.com/hapoomsbake"
   },
   {
+    "id": "오한수우육면가(판교파미어스몰점)-13449-시흥동-03-1호(시흥동)",
+    "name": "오한수우육면가(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 17 판교아이스퀘어 A동 203-1호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "음식점>중식당",
+    "categoryGroup": "중식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%98%A4%ED%95%9C%EC%88%98%EC%9A%B0%EC%9C%A1%EB%A9%B4%EA%B0%80%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%ED%8C%90%EA%B5%90%EC%95%84%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%20A%EB%8F%99%20203-1%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "라디오베이(판교점)-13524--래에셋센터2층일부",
     "name": "라디오베이(판교점)",
     "address": "경기도 성남시 분당구 판교역로192번길 12 판교미래에셋센터 2층",
@@ -6688,6 +7438,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%96%91%EC%9C%A1%EC%A0%90%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%B6%84%EB%8B%B9%EB%82%B4%EA%B3%A1%EB%A1%9C%20131%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EC%9B%90%ED%83%80%EC%9B%8C%202%EC%B8%B5%20%EC%96%91%EC%9C%A1%EC%A0%90%20%ED%8C%90%EA%B5%90%EC%A0%90",
     "externalLink": "https://www.instagram.com/pg_yangyukjum"
+  },
+  {
+    "id": "만찬(슈마우스)-13493--,삼환하이펙스A동",
+    "name": "만찬(슈마우스)",
+    "address": "경기도 성남시 분당구 판교역로 240",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4021113,
+    "lng": 127.1105401,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%A7%8C%EC%B0%AC%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240",
+    "externalLink": null
   },
   {
     "id": "뚜레쥬르(판교우림점)-x-삼평동-9-22(삼평동)",
@@ -6780,6 +7545,21 @@
     "externalLink": "https://www.bonif.co.kr/menu/list?brdCd=BF102"
   },
   {
+    "id": "스시가오(판교유스페이스점)-13494--이스1B121호",
+    "name": "스시가오(판교유스페이스점)",
+    "address": "경기도 성남시 분당구 대왕판교로 660 유스페이스 지하1층 121호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4006659,
+    "lng": 127.1066863,
+    "category": "음식점>일식>초밥,롤",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%8A%A4%EC%8B%9C%EA%B0%80%EC%98%A4%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20660%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%20%EC%A7%80%ED%95%981%EC%B8%B5%20121%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "히카루후-13525-삼평동-반써밋플레이스)",
     "name": "히카루 후",
     "address": "경기도 성남시 분당구 동판교로177번길 25 판교 아브뉴프랑 2층 히카루후",
@@ -6870,6 +7650,21 @@
     "externalLink": null
   },
   {
+    "id": "베어스타코(판교점)_KIOSK-13494--B1층B116호",
+    "name": "베어스타코(판교점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 231 에스동 지하 1층 116호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4013231,
+    "lng": 127.1086567,
+    "category": "음식점>양식>멕시코,남미음식",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B2%A0%EC%96%B4%EC%8A%A4%ED%83%80%EC%BD%94%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20%EC%97%90%EC%8A%A4%EB%8F%99%20%EC%A7%80%ED%95%98%201%EC%B8%B5%20116%ED%98%B8",
+    "externalLink": "https://www.instagram.com/bearstaco_official/?next=%2F"
+  },
+  {
     "id": "양산도(판교점)-13525-삼평동-교푸르지오월드마크)",
     "name": "양산도(판교점)",
     "address": "경기도 성남시 분당구 대왕판교로606번길 58 판교푸르지오월드마크상가 1층 115호",
@@ -6915,6 +7710,21 @@
     "externalLink": "https://www.instagram.com/orbiter_roasters"
   },
   {
+    "id": "탄탄면공방(A동)_KIOSK-13493--40A동121호",
+    "name": "탄탄면공방(A동)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스 A동 121호",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4019833,
+    "lng": 127.1108261,
+    "category": "음식점>아시아음식",
+    "categoryGroup": "기타",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%83%84%ED%83%84%EB%A9%B4%EA%B3%B5%EB%B0%A9%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4%20A%EB%8F%99%20121%ED%98%B8",
+    "externalLink": "http://www.tantanmyun.com"
+  },
+  {
     "id": "땡큐로스터스-13493-삼평동-삼환하이팩스A동)",
     "name": "땡큐로스터스",
     "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스 A동 204호",
@@ -6958,6 +7768,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B4%91%ED%99%94%EB%AC%B8%EA%B5%AD%EB%B0%A5%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20152%20%EC%95%8C%ED%8C%8C%EB%8F%94%ED%83%80%EC%9B%8C%202%EC%B8%B5",
     "externalLink": null
+  },
+  {
+    "id": "아비꼬(판교파미어스몰점)-13449-시흥동-01-3호(시흥동)",
+    "name": "아비꼬(판교파미어스몰점)",
+    "address": "경기도 성남시 수정구 창업로 17 B동 2층 201-3호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "음식점>일식>카레",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%84%EB%B9%84%EA%BC%AC%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20B%EB%8F%99%202%EC%B8%B5%20201-3%ED%98%B8",
+    "externalLink": "https://www.instagram.com/"
   },
   {
     "id": "버거킹(판교유스페이스점)-13494--판교로6601층",
@@ -7290,6 +8115,21 @@
     "externalLink": null
   },
   {
+    "id": "버거온플릭_KIOSK-13530-백현동-지)2층206호",
+    "name": "버거온플릭_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 145 라스트리트 2동 206호",
+    "zipcode": "13530",
+    "gu": "분당구",
+    "dong": "백현동",
+    "lat": 37.3938809,
+    "lng": 127.1088411,
+    "category": "음식점>햄버거",
+    "categoryGroup": "패스트푸드",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B2%84%EA%B1%B0%EC%98%A8%ED%94%8C%EB%A6%AD%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20145%20%EB%9D%BC%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8%202%EB%8F%99%20206%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "미쁜선순대-13493--,삼환하이펙스A동",
     "name": "미쁜선순대",
     "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스A동 1층 125호",
@@ -7317,6 +8157,21 @@
     "categoryGroup": "한식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%98%A4%EB%B4%89%EC%A7%91%20%ED%8C%90%EA%B5%90%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20B%EB%8F%99%202%EC%B8%B5%20213%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "딜라잇푸드(ABN타워)-04563-삼평동-평동,ABN타워)",
+    "name": "딜라잇푸드(ABN타워)",
+    "address": "경기도 성남시 분당구 판교로 331",
+    "zipcode": "04563",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4036703,
+    "lng": 127.1105412,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%94%9C%EB%9D%BC%EC%9E%87%ED%91%B8%EB%93%9C%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EB%A1%9C%20331",
     "externalLink": null
   },
   {
@@ -7363,6 +8218,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%8F%99%EC%B2%AD%EB%8B%B4%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C606%EB%B2%88%EA%B8%B8%2045",
     "externalLink": null
+  },
+  {
+    "id": "투썸플레이스(판교파미어스몰점)_QR-13449-시흥동-B동1층101호",
+    "name": "투썸플레이스(판교파미어스몰점)_QR",
+    "address": "경기도 성남시 수정구 창업로 17 판교아이스퀘어 B동 1층 101호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4126405,
+    "lng": 127.0979099,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%88%AC%EC%8D%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%ED%8C%90%EA%B5%90%EC%95%84%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%20B%EB%8F%99%201%EC%B8%B5%20101%ED%98%B8",
+    "externalLink": "https://www.twosome.co.kr"
+  },
+  {
+    "id": "애햄부대찌개(정자점)-13558-정자동-동)2층203호",
+    "name": "애햄 부대찌개(정자점)",
+    "address": "경기도 성남시 분당구 느티로 16 2층 203호 애햄부대찌개 정자직영점",
+    "zipcode": "13558",
+    "gu": "분당구",
+    "dong": "정자동",
+    "lat": 37.3681714,
+    "lng": 127.1063065,
+    "category": "한식>찌개,전골",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%95%A0%ED%96%84%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C%20%EC%A0%95%EC%9E%90%EC%A7%81%EC%98%81%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8A%90%ED%8B%B0%EB%A1%9C%2016%202%EC%B8%B5%20203%ED%98%B8%20%EC%95%A0%ED%96%84%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C%20%EC%A0%95%EC%9E%90%EC%A7%81%EC%98%81%EC%A0%90",
+    "externalLink": "https://www.instagram.com/aeham_official/"
   },
   {
     "id": "샐러디(판교테크노밸리점)-13494--판교로6701층",
@@ -7500,6 +8385,21 @@
     "externalLink": "https://www.instagram.com/deokboon_pangyo/"
   },
   {
+    "id": "로스터리락온(판교점)_KIOSK-13494--2351층118호",
+    "name": "로스터리 락온(판교점)_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 235 에이치스퀘어 N동 118호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4018735,
+    "lng": 127.1091594,
+    "category": "음식점>카페,디저트",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%A1%9C%EC%8A%A4%ED%84%B0%EB%A6%AC%20%EB%9D%BD%EC%98%A8%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20235%20%EC%97%90%EC%9D%B4%EC%B9%98%EC%8A%A4%ED%80%98%EC%96%B4%20N%EB%8F%99%20118%ED%98%B8",
+    "externalLink": "https://www.instagram.com/roastery_lahgon/"
+  },
+  {
     "id": "왕두꺼비부대찌개-13637--포인트타운1층3호",
     "name": "왕두꺼비부대찌개",
     "address": "경기도 성남시 분당구 구미로 11 1층103호",
@@ -7560,6 +8460,21 @@
     "externalLink": "https://www.paris.co.kr/"
   },
   {
+    "id": "배스킨라빈스(울산성남점)-44532-성남동-20)배스킨라빈스",
+    "name": "배스킨라빈스(울산성남점)",
+    "address": "울산광역시 중구 만남의거리 10",
+    "zipcode": "44532",
+    "gu": "",
+    "dong": "성남동",
+    "lat": 35.5545047,
+    "lng": 129.320303,
+    "category": "카페,디저트>아이스크림",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B0%B0%EC%8A%A4%ED%82%A8%EB%9D%BC%EB%B9%88%EC%8A%A4%20%EC%9A%B8%EC%82%B0%EC%84%B1%EB%82%A8%EC%A0%90%20%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%EB%A7%8C%EB%82%A8%EC%9D%98%EA%B1%B0%EB%A6%AC%2010",
+    "externalLink": "https://blog.naver.com/brgirl31/"
+  },
+  {
     "id": "이디야(판교파미어스몰점)-13449--1층B103-2호",
     "name": "이디야(판교파미어스몰점)",
     "address": "경기도 성남시 수정구 창업로 17 판교 파미어스몰 C2블록 B1층 B103-2호",
@@ -7573,6 +8488,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%9D%B4%EB%94%94%EC%95%BC%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%ED%8C%90%EA%B5%90%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%20C2%EB%B8%94%EB%A1%9D%20B1%EC%B8%B5%20B103-2%ED%98%B8",
     "externalLink": "http://www.ediya.co.kr"
+  },
+  {
+    "id": "트러스트커피(판교점)-13494-삼평동-,H스퀘어N동)",
+    "name": "트러스트커피(판교점)",
+    "address": "경기도 성남시 분당구 판교역로 235 에이치스퀘어 엔동 1층 101호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4020281,
+    "lng": 127.1086521,
+    "category": "음식점>카페,디저트",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20235%20%EC%97%90%EC%9D%B4%EC%B9%98%EC%8A%A4%ED%80%98%EC%96%B4%20%EC%97%94%EB%8F%99%201%EC%B8%B5%20101%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "박가부대찌개(판교라스트리트점)-13530--파리움2단지,2층",
@@ -7693,6 +8623,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%A7%84%EB%B6%80%EC%97%89%EC%9D%B4%EA%BC%AC%EB%A7%88%EA%B9%80%EB%B0%A5%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C241%EB%B2%88%EA%B8%B8%2022%20%EC%97%A0%ED%83%80%EC%9B%8C%201%EC%B8%B5",
     "externalLink": null
+  },
+  {
+    "id": "샐러딧판교파미어스점_KIOSK-13449--지하1층B108호",
+    "name": "샐러딧 판교파미어스점_KIOSK",
+    "address": "경기도 성남시 수정구 창업로 17 이스퀘어 B동 103-1호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "",
+    "lat": 37.4121736,
+    "lng": 127.097499,
+    "category": "도시락,컵밥>다이어트,샐러드",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%83%90%EB%9F%AC%EB%94%A7%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%20B%EB%8F%99%20103-1%ED%98%B8",
+    "externalLink": "https://100원커피이벤트-선착순주문하기.com"
   },
   {
     "id": "모박사부대찌개(판교점)-13486--9-22B118호",
@@ -7843,6 +8788,36 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B0%90%EC%84%B1%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90H%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20H%EC%8A%A4%ED%80%98%EC%96%B4%20S%EB%8F%99%201%EC%B8%B5%20117%ED%98%B8",
     "externalLink": "https://events.passorder.co.kr/100won-event-new"
+  },
+  {
+    "id": "이태리부대찌개(판교직영점)-13493--구판교역로230",
+    "name": "이태리부대찌개(판교직영점)",
+    "address": "경기도 성남시 분당구 판교역로 230 삼환하이펙스 제지1층 B동 B117-1호(삼평동)",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.401107,
+    "lng": 127.110191,
+    "category": "한식>찌개,전골",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9D%B4%ED%83%9C%EB%A6%AC%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20230%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4%20%EC%A0%9C%EC%A7%801%EC%B8%B5%20B%EB%8F%99%20B117-1%ED%98%B8(%EC%82%BC%ED%8F%89%EB%8F%99)",
+    "externalLink": "http://www.italybudae.co.kr"
+  },
+  {
+    "id": "키친쥰_KIOSK-12364-삼평동-동지하1층103호",
+    "name": "키친쥰_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 230 비동 1층 B103호",
+    "zipcode": "12364",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4010984,
+    "lng": 127.1102986,
+    "category": "음식점>일식>덮밥",
+    "categoryGroup": "일식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%82%A4%EC%B9%9C%EC%A5%B0%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20230%20%EB%B9%84%EB%8F%99%201%EC%B8%B5%20B103%ED%98%B8",
+    "externalLink": null
   },
   {
     "id": "아세야마-13486--TY2층209호",
@@ -8160,6 +9135,21 @@
     "externalLink": "https://www.instagram.com/ibericook_jeongja?igsh=aGo0bzF4aGIweW14"
   },
   {
+    "id": "스타벅스(대전터미널DT점)-34572--성남동502-2",
+    "name": "스타벅스(대전터미널DT점)",
+    "address": "대전광역시 동구 동서대로 1658 (성남동)",
+    "zipcode": "34572",
+    "gu": "",
+    "dong": "",
+    "lat": 36.3478844,
+    "lng": 127.4342411,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EB%8C%80%EC%A0%84%ED%84%B0%EB%AF%B8%EB%84%90DT%EC%A0%90%20%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8F%99%EA%B5%AC%20%EB%8F%99%EC%84%9C%EB%8C%80%EB%A1%9C%201658%20(%EC%84%B1%EB%82%A8%EB%8F%99)",
+    "externalLink": "http://www.starbucks.co.kr/"
+  },
+  {
     "id": "영심이떡볶이&김밥(판교2호점)-13524--번길45110호",
     "name": "영심이떡볶이&김밥(판교2호점)",
     "address": "경기도 성남시 분당구 대왕판교로606번길 45 판교역 푸르지오시티",
@@ -8202,6 +9192,21 @@
     "categoryGroup": "일식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EC%B1%84%EC%84%A0%EB%8B%B9%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%ED%8C%90%EA%B5%90%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C606%EB%B2%88%EA%B8%B8%2047%20SG%EB%A6%AC%EC%8A%88%EB%B9%8C%203%EC%B8%B5",
+    "externalLink": null
+  },
+  {
+    "id": "김밥천국(판교테크노밸리점)-13494-삼평동-지하1층B119호",
+    "name": "김밥천국(판교테크노밸리점)",
+    "address": "경기도 성남시 분당구 판교역로 231 에이치스퀘어 에스동 지하1층 119호",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4013231,
+    "lng": 127.1086567,
+    "category": "음식점>분식",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EA%B9%80%EB%B0%A5%EC%B2%9C%EA%B5%AD%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20231%20%EC%97%90%EC%9D%B4%EC%B9%98%EC%8A%A4%ED%80%98%EC%96%B4%20%EC%97%90%EC%8A%A4%EB%8F%99%20%EC%A7%80%ED%95%981%EC%B8%B5%20119%ED%98%B8",
     "externalLink": null
   },
   {
@@ -8248,6 +9253,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%ED%8C%90%EA%B5%90%EB%A9%B4%ED%95%99%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A42%20A%EB%8F%99%20103%ED%98%B8",
     "externalLink": null
+  },
+  {
+    "id": "타코익스체인지_KIOSK-13493--(삼환하이펙스A동)",
+    "name": "타코익스체인지_KIOSK",
+    "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스A동 지하1층 122-1호",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.401973,
+    "lng": 127.1102578,
+    "category": "음식점>멕시코,남미음식",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%83%80%EC%BD%94%EC%9D%B5%EC%8A%A4%EC%B2%B4%EC%9D%B8%EC%A7%80%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4A%EB%8F%99%20%EC%A7%80%ED%95%981%EC%B8%B5%20122-1%ED%98%B8",
+    "externalLink": "https://www.instagram.com/taco_exchange"
   },
   {
     "id": "빽다방(교보서현점)-13591--이원프라자106호",
@@ -8355,6 +9375,21 @@
     "externalLink": null
   },
   {
+    "id": "피키샐리-13449-시흥동-동,판교아이스퀘어)",
+    "name": "피키샐리",
+    "address": "경기도 성남시 수정구 창업로 17 판교아이스퀘어 A동 B104-3호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "도시락,컵밥>다이어트,샐러드",
+    "categoryGroup": "양식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%94%BC%ED%82%A4%EC%83%90%EB%A6%AC%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20%ED%8C%90%EA%B5%90%EC%95%84%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%20A%EB%8F%99%20B104-3%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "오늘하루-x--21삼라마이다스빌",
     "name": "오늘하루",
     "address": "경기도 성남시 분당구 정자일로 21 삼라마이다스빌",
@@ -8383,6 +9418,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%8F%99%EC%95%95%EB%8C%80%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%2025%20%EB%8C%80%EB%8D%95%ED%94%84%EB%9D%BC%EC%9E%902",
     "externalLink": null
+  },
+  {
+    "id": "장비빔국수(미금점)-13616--25대덕프라자2",
+    "name": "장비빔국수(미금점)",
+    "address": "경기도 성남시 분당구 정자일로 25",
+    "zipcode": "13616",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3524334,
+    "lng": 127.1057019,
+    "category": "한식>국수",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%9E%A5%EB%B9%84%EB%B9%94%EA%B5%AD%EC%88%98%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%2025",
+    "externalLink": "http://cafe.daum.net/jangguksu/8Wsk/1"
   },
   {
     "id": "스타벅스(분당정자점)-13555--두산파빌리온1층",
@@ -8487,6 +9537,21 @@
     "categoryGroup": "분식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EA%B9%80%EB%B0%A5%EB%82%98%EB%9D%BC%20%EB%B0%B1%EA%B6%81%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%A0%95%EC%9E%90%EC%9D%BC%EB%A1%9C%20158%20%EB%B0%B1%EA%B6%81%ED%94%84%EB%9D%BC%EC%9E%90%201%EC%B8%B5",
+    "externalLink": null
+  },
+  {
+    "id": "에스이커피(기업성장센터점)-13449-시흥동-층107~109호",
+    "name": "에스이커피(기업성장센터점)",
+    "address": "경기도 성남시 수정구 창업로 42 경기기업성장센터",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121312,
+    "lng": 127.095037,
+    "category": "카페,디저트>베이커리",
+    "categoryGroup": "베이커리",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%97%90%EC%8A%A4%EC%9D%B4%EC%BB%A4%ED%94%BC%20%EA%B8%B0%EC%97%85%EC%84%B1%EC%9E%A5%EC%84%BC%ED%84%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2042%20%EA%B2%BD%EA%B8%B0%EA%B8%B0%EC%97%85%EC%84%B1%EC%9E%A5%EC%84%BC%ED%84%B0",
     "externalLink": null
   },
   {
@@ -8818,6 +9883,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%B9%84%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%B0%B1%ED%98%84%EB%A1%9C%2097%201%EC%B8%B5%20%EB%B9%84%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C%20%EC%BB%A4%ED%94%BC",
     "externalLink": "http://instagram.com/bground_coffee"
+  },
+  {
+    "id": "엽기떡볶이(분당서현점)(오더)-13591--042층209호",
+    "name": "엽기떡볶이(분당서현점)(오더)",
+    "address": "경기도 성남시 분당구 서현로 204 엘지분당에클라트2차",
+    "zipcode": "13591",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.3871467,
+    "lng": 127.1250726,
+    "category": "음식점>분식",
+    "categoryGroup": "분식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B6%84%EB%8B%B9%EC%84%9C%ED%98%84%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%84%9C%ED%98%84%EB%A1%9C%20204%20%EC%97%98%EC%A7%80%EB%B6%84%EB%8B%B9%EC%97%90%ED%81%B4%EB%9D%BC%ED%8A%B82%EC%B0%A8",
+    "externalLink": "https://blog.naver.com/ddm_yupdduk"
   },
   {
     "id": "가화-13591--서현동,산호트윈스",
@@ -10455,6 +11535,36 @@
     "externalLink": "https://cu.bgfretail.com/"
   },
   {
+    "id": "홍짜장(판교파미어스점)-13449-시흥동-7(시흥동)2층",
+    "name": "홍짜장(판교파미어스점)",
+    "address": "경기도 성남시 수정구 창업로 17 F동 2층 202호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4122741,
+    "lng": 127.0982727,
+    "category": "음식점>중식당",
+    "categoryGroup": "중식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%99%8D%EC%A7%9C%EC%9E%A5%20%ED%8C%90%EA%B5%90%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20F%EB%8F%99%202%EC%B8%B5%20202%ED%98%B8",
+    "externalLink": null
+  },
+  {
+    "id": "시나본(판교파미어스점)-13449-시흥동-03-1호(시흥동)",
+    "name": "시나본(판교파미어스점)",
+    "address": "경기도 성남시 수정구 창업로 17 PAME2 지하1층 시나본 판교 파미어스몰점",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4121779,
+    "lng": 127.0976007,
+    "category": "카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%8B%9C%EB%82%98%EB%B3%B8%20%ED%8C%90%EA%B5%90%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2017%20PAME2%20%EC%A7%80%ED%95%981%EC%B8%B5%20%EC%8B%9C%EB%82%98%EB%B3%B8%20%ED%8C%90%EA%B5%90%20%ED%8C%8C%EB%AF%B8%EC%96%B4%EC%8A%A4%EB%AA%B0%EC%A0%90",
+    "externalLink": null
+  },
+  {
     "id": "콜렉티보판교테크원점-13529--타워1층콜렉티보",
     "name": "콜렉티보 판교테크원점",
     "address": "경기도 성남시 분당구 분당내곡로 131 판교테크원타워 1층 콜렉티보",
@@ -10845,6 +11955,21 @@
     "externalLink": "https://www.paris.co.kr/"
   },
   {
+    "id": "빽다방(오리역점)(오더)-13637-구미동-동)1층105호",
+    "name": "빽다방(오리역점)(오더)",
+    "address": "경기도 성남시 분당구 성남대로 34 1층 105호",
+    "zipcode": "13637",
+    "gu": "분당구",
+    "dong": "구미동",
+    "lat": 37.3388277,
+    "lng": 127.1092732,
+    "category": "카페,디저트>테이크아웃커피",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%EC%98%A4%EB%A6%AC%EC%97%AD%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%84%B1%EB%82%A8%EB%8C%80%EB%A1%9C%2034%201%EC%B8%B5%20105%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "바삭돈카츠-13558-정자동-자동,백궁프라자)",
     "name": "바삭돈카츠",
     "address": "경기도 성남시 분당구 분당수서로 501 한국잡월드 2층 푸드코트",
@@ -11173,6 +12298,21 @@
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%82%A8%EC%9B%90%EC%B6%94%EC%96%B4%ED%83%95%EC%B6%94%EB%8B%B4%EA%B3%A8%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%84%B1%EB%82%A8%EB%8C%80%EB%A1%9C43%EB%B2%88%EA%B8%B8%2010%20%ED%95%98%EB%82%98EZ%ED%83%80%EC%9B%8C%202%EC%B8%B5",
     "externalLink": null
+  },
+  {
+    "id": "별미_KIOSK-13636-구미동-(구미동,포스빌)",
+    "name": "별미_KIOSK",
+    "address": "경기도 성남시 분당구 성남대로 51 포스빌 114호",
+    "zipcode": "13636",
+    "gu": "분당구",
+    "dong": "구미동",
+    "lat": 37.340503,
+    "lng": 127.1080933,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B3%84%EB%AF%B8%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EC%84%B1%EB%82%A8%EB%8C%80%EB%A1%9C%2051%20%ED%8F%AC%EC%8A%A4%EB%B9%8C%20114%ED%98%B8",
+    "externalLink": "https://blog.naver.com/caraksy"
   },
   {
     "id": "롯데리아(정자역점)-13558---3여민빌딩5비",
@@ -11685,6 +12825,21 @@
     "externalLink": "http://없습니다"
   },
   {
+    "id": "오투닭갈비부대찌개(판교점)-13494--스페이스2223호",
+    "name": "오투닭갈비부대찌개(판교점)",
+    "address": "경기도 성남시 분당구 대왕판교로 670 유스페이스2",
+    "zipcode": "13494",
+    "gu": "분당구",
+    "dong": "",
+    "lat": 37.4020287,
+    "lng": 127.1066516,
+    "category": "육류,고기요리>닭갈비",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EC%98%A4%ED%88%AC%EB%8B%AD%EA%B0%88%EB%B9%84%26%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C%20%ED%8C%90%EA%B5%90%ED%85%8C%ED%81%AC%EB%85%B8%EB%B2%A8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20670%20%EC%9C%A0%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A42",
+    "externalLink": "https://www.오투닭갈비.com"
+  },
+  {
     "id": "미소-13486-삼평동-동)212호미소",
     "name": "미소",
     "address": "경기도 성남시 분당구 판교로255번길 9-22 우림W시티 2층 212호",
@@ -11940,6 +13095,51 @@
     "externalLink": "https://www.instagram.com/bdkamsung1"
   },
   {
+    "id": "돗가비불쭈꾸미-13449-시흥동-A동1층3호",
+    "name": "돗가비불쭈꾸미",
+    "address": "경기도 성남시 수정구 창업로 43 글로벌비즈센터 A동 103호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4116007,
+    "lng": 127.0961047,
+    "category": "한식>주꾸미요리",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%8F%97%EA%B0%80%EB%B9%84%EB%B6%88%EC%AD%88%EA%BE%B8%EB%AF%B8%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2043%20%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%B9%84%EC%A6%88%EC%84%BC%ED%84%B0%20A%EB%8F%99%20103%ED%98%B8",
+    "externalLink": "https://www.instagram.com/dotgabi_pangyo"
+  },
+  {
+    "id": "텐퍼센트커피(판교제2테크노밸리점)-13449-시흥동-동)1층103호",
+    "name": "텐퍼센트커피(판교제2테크노밸리점)",
+    "address": "경기도 성남시 수정구 창업로 55 디앤써밋 1층 103호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.4111521,
+    "lng": 127.0950975,
+    "category": "음식점>카페,디저트>카페",
+    "categoryGroup": "카페·디저트",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%85%90%ED%8D%BC%EC%84%BC%ED%8A%B8%EC%BB%A4%ED%94%BC%20%ED%8C%90%EA%B5%90%EC%A0%9C2%ED%85%8C%ED%81%AC%EB%85%B8%EB%B0%B8%EB%A6%AC%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2055%20%EB%94%94%EC%95%A4%EC%8D%A8%EB%B0%8B%201%EC%B8%B5%20103%ED%98%B8",
+    "externalLink": "http://www.tenpercentcoffee.com/"
+  },
+  {
+    "id": "판교감자탕보쌈-13449-시흥동-하1층B114호",
+    "name": "판교감자탕보쌈",
+    "address": "경기도 성남시 수정구 창업로 42 지하1층 B114호",
+    "zipcode": "13449",
+    "gu": "수정구",
+    "dong": "시흥동",
+    "lat": 37.411834,
+    "lng": 127.0950477,
+    "category": "한식>감자탕",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%ED%8C%90%EA%B5%90%EA%B0%90%EC%9E%90%ED%83%95%EB%B3%B4%EC%8C%88%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%88%98%EC%A0%95%EA%B5%AC%20%EC%B0%BD%EC%97%85%EB%A1%9C%2042%20%EC%A7%80%ED%95%981%EC%B8%B5%20B114%ED%98%B8",
+    "externalLink": null
+  },
+  {
     "id": "율판교점-13494-삼평동-삼평동)b112호",
     "name": "율 판교점",
     "address": "경기도 성남시 분당구 대왕판교로 660 지하1층 B112호",
@@ -12057,6 +13257,21 @@
     "categoryGroup": "한식",
     "phone": null,
     "placeUrl": "https://map.naver.com/p/search/%EB%82%9A%EC%8B%9C%EA%BE%BC%EA%B9%80%EC%B6%98%EB%B3%B5%EC%9D%98%EB%8F%84%EC%8B%9C%EC%96%B4%EB%B6%80%20%ED%8C%90%EA%B5%90%EC%A0%90%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%EB%8C%80%EC%99%95%ED%8C%90%EA%B5%90%EB%A1%9C%20660",
+    "externalLink": null
+  },
+  {
+    "id": "밥볶다(동판교점)-13493-삼평동-호,B115-1호",
+    "name": "밥볶다(동판교점)",
+    "address": "경기도 성남시 분당구 판교역로 240 삼환하이펙스a동 지하1층 115, 115-1",
+    "zipcode": "13493",
+    "gu": "분당구",
+    "dong": "삼평동",
+    "lat": 37.4021113,
+    "lng": 127.1105401,
+    "category": "음식점>한식",
+    "categoryGroup": "한식",
+    "phone": null,
+    "placeUrl": "https://map.naver.com/p/search/%EB%B0%A5%EB%B3%B6%EB%8B%A4%20%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EB%B6%84%EB%8B%B9%EA%B5%AC%20%ED%8C%90%EA%B5%90%EC%97%AD%EB%A1%9C%20240%20%EC%82%BC%ED%99%98%ED%95%98%EC%9D%B4%ED%8E%99%EC%8A%A4a%EB%8F%99%20%EC%A7%80%ED%95%981%EC%B8%B5%20115%2C%20115-1",
     "externalLink": null
   }
 ]
