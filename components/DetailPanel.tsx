@@ -18,6 +18,7 @@ interface PlaceBlog {
   postdate: string;
 }
 interface PlaceInfo {
+  menuImages: PlaceImage[];
   images: PlaceImage[];
   blogs: PlaceBlog[];
 }
@@ -27,6 +28,43 @@ function formatDate(yyyymmdd: string): string {
   return `${yyyymmdd.slice(0, 4)}.${yyyymmdd.slice(4, 6)}.${yyyymmdd.slice(6, 8)}`;
 }
 
+function ImageGrid({ images, cols = 3 }: { images: PlaceImage[]; cols?: 3 | 4 }) {
+  const gridClass = cols === 4 ? "grid-cols-4" : "grid-cols-3";
+  return (
+    <div className={`grid ${gridClass} gap-1`}>
+      {images.map((img, i) => (
+        <a
+          key={i}
+          href={img.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block aspect-square overflow-hidden rounded bg-gray-100"
+          title={img.title}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={img.thumbnail}
+            alt={img.title}
+            loading="lazy"
+            className="w-full h-full object-cover hover:scale-105 transition-transform"
+          />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function SkeletonGrid({ cols = 3, count = 6 }: { cols?: 3 | 4; count?: number }) {
+  const gridClass = cols === 4 ? "grid-cols-4" : "grid-cols-3";
+  return (
+    <div className={`grid ${gridClass} gap-1`}>
+      {Array.from({ length: count }).map((_, i) => (
+        <div key={i} className="aspect-square bg-gray-100 animate-pulse rounded" />
+      ))}
+    </div>
+  );
+}
+
 export default function DetailPanel({ all }: { all: Restaurant[] }) {
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
@@ -34,6 +72,7 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   const [info, setInfo] = useState<PlaceInfo | null>(null);
   const [loading, setLoading] = useState(false);
+  const [resolving, setResolving] = useState(false);
 
   useEffect(() => {
     if (!restaurant) {
@@ -44,13 +83,13 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
     setLoading(true);
     setInfo(null);
     const url = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`;
-    fetch(url)
+    fetch(url, { cache: "no-store" })
       .then((r) => r.json())
       .then((data: PlaceInfo) => {
         if (!cancelled) setInfo(data);
       })
       .catch(() => {
-        if (!cancelled) setInfo({ images: [], blogs: [] });
+        if (!cancelled) setInfo({ menuImages: [], images: [], blogs: [] });
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -62,8 +101,27 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   if (!restaurant) return null;
 
-  // 가게명만으로 네이버 지도 검색 (주소까지 붙이면 검색 결과가 안 나옴)
-  const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`;
+  const handleOpenNaverMap = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (resolving) return;
+    setResolving(true);
+    // 사용자가 광고 차단/팝업 차단으로 새 탭이 막힐 가능성 — 미리 빈 탭을 열어두고 URL만 갈아끼움
+    const newWin = window.open("about:blank", "_blank");
+    try {
+      const res = await fetch(
+        `/api/place-resolve?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`,
+      );
+      const { url } = await res.json();
+      if (newWin) newWin.location.href = url;
+      else window.open(url, "_blank");
+    } catch {
+      const fallback = `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`;
+      if (newWin) newWin.location.href = fallback;
+      else window.open(fallback, "_blank");
+    } finally {
+      setResolving(false);
+    }
+  };
 
   return (
     <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
@@ -110,47 +168,40 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
           </div>
         </div>
 
-        <a
-          href={placeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full text-center px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded font-semibold text-sm"
+        <button
+          type="button"
+          onClick={handleOpenNaverMap}
+          disabled={resolving}
+          className="block w-full text-center px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-300 text-white rounded font-semibold text-sm"
         >
-          🗺️ 네이버 지도에서 자세히 보기
-        </a>
+          {resolving ? "🔍 가게 페이지 찾는 중…" : "🗺️ 네이버 지도에서 자세히 보기"}
+        </button>
+
+        {/* Menu */}
+        <section>
+          <h3 className="text-sm font-bold text-gray-800 mb-2">🍴 메뉴</h3>
+          <p className="text-[11px] text-gray-400 mb-2">
+            * 네이버는 정확한 메뉴 데이터를 API로 공개하지 않아, 메뉴판 사진으로 대체합니다.
+            네이버 지도 페이지를 열면 정식 메뉴/가격 확인 가능합니다.
+          </p>
+          {loading && !info ? (
+            <SkeletonGrid cols={4} count={8} />
+          ) : info && (info.menuImages ?? []).length > 0 ? (
+            <ImageGrid images={(info.menuImages ?? []).slice(0, 8)} cols={4} />
+          ) : (
+            <div className="text-xs text-gray-400 py-2">메뉴 이미지 결과 없음</div>
+          )}
+        </section>
 
         {/* Photos */}
         <section>
-          <h3 className="text-sm font-bold text-gray-800 mb-2">📸 사진 / 메뉴</h3>
+          <h3 className="text-sm font-bold text-gray-800 mb-2">📸 음식 사진</h3>
           {loading && !info ? (
-            <div className="grid grid-cols-3 gap-1">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="aspect-square bg-gray-100 animate-pulse rounded" />
-              ))}
-            </div>
-          ) : info && info.images.length > 0 ? (
-            <div className="grid grid-cols-3 gap-1">
-              {info.images.slice(0, 12).map((img, i) => (
-                <a
-                  key={i}
-                  href={img.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block aspect-square overflow-hidden rounded bg-gray-100"
-                  title={img.title}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={img.thumbnail}
-                    alt={img.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform"
-                  />
-                </a>
-              ))}
-            </div>
+            <SkeletonGrid cols={3} count={6} />
+          ) : info && (info.images ?? []).length > 0 ? (
+            <ImageGrid images={(info.images ?? []).slice(0, 9)} cols={3} />
           ) : (
-            <div className="text-xs text-gray-400 py-2">사진 검색 결과 없음</div>
+            <div className="text-xs text-gray-400 py-2">사진 결과 없음</div>
           )}
         </section>
 
@@ -163,9 +214,9 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
                 <div key={i} className="h-16 bg-gray-100 animate-pulse rounded" />
               ))}
             </div>
-          ) : info && info.blogs.length > 0 ? (
+          ) : info && (info.blogs ?? []).length > 0 ? (
             <ul className="space-y-2">
-              {info.blogs.map((b, i) => (
+              {(info.blogs ?? []).map((b, i) => (
                 <li key={i}>
                   <a
                     href={b.link}

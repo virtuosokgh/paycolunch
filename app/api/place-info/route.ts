@@ -43,36 +43,44 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Naver creds missing" }, { status: 500 });
   }
 
-  // 지역 키워드 1~2개만 추출 (시·구·동) → 노이즈 줄임
+  // 가게명에서 괄호(지점명) 제거 — 검색 노이즈 줄임
+  const cleanName = name.replace(/\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
+  // 지역 키워드 1~2개만 추출 (구·동) → 시는 빼서 더 유연하게
   const locationHint = address
     .split(/\s+/)
-    .filter((t) => /(시|구|동)$/.test(t))
+    .filter((t) => /(구|동)$/.test(t))
     .slice(0, 2)
     .join(" ");
-  const query = encodeURIComponent(`${name} ${locationHint}`.trim());
+  const query = encodeURIComponent(`${cleanName} ${locationHint}`.trim());
 
   const headers = {
     "X-Naver-Client-Id": clientId,
     "X-Naver-Client-Secret": clientSecret,
   };
 
-  const [imageRes, blogRes] = await Promise.allSettled([
-    fetch(`https://openapi.naver.com/v1/search/image?query=${query}&display=12&filter=large&sort=sim`, { headers }),
+  // 메뉴 검색: 가게명 + "메뉴판"만 (지역 hint 빼면 결과가 더 많음)
+  const menuQuery = encodeURIComponent(`${cleanName} 메뉴판`.trim());
+
+  const [menuRes, imageRes, blogRes] = await Promise.allSettled([
+    fetch(`https://openapi.naver.com/v1/search/image?query=${menuQuery}&display=8&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${query}&display=9&filter=large&sort=sim`, { headers }),
     fetch(`https://openapi.naver.com/v1/search/blog.json?query=${query}&display=5&sort=sim`, { headers }),
   ]);
 
-  let images: Array<{ title: string; link: string; thumbnail: string }> = [];
+  const toImages = (res: PromiseSettledResult<Response>) =>
+    res.status === "fulfilled" && res.value.ok
+      ? res.value.json().then((json) =>
+          ((json.items ?? []) as NaverImageItem[]).map((it) => ({
+            title: stripHtml(it.title),
+            link: it.link,
+            thumbnail: it.thumbnail,
+          })),
+        )
+      : Promise.resolve([] as Array<{ title: string; link: string; thumbnail: string }>);
+
+  const [menuImages, images] = await Promise.all([toImages(menuRes), toImages(imageRes)]);
+
   let blogs: Array<{ title: string; link: string; description: string; bloggername: string; postdate: string }> = [];
-
-  if (imageRes.status === "fulfilled" && imageRes.value.ok) {
-    const json = await imageRes.value.json();
-    images = ((json.items ?? []) as NaverImageItem[]).map((it) => ({
-      title: stripHtml(it.title),
-      link: it.link,
-      thumbnail: it.thumbnail,
-    }));
-  }
-
   if (blogRes.status === "fulfilled" && blogRes.value.ok) {
     const json = await blogRes.value.json();
     blogs = ((json.items ?? []) as NaverBlogItem[]).map((it) => ({
@@ -85,7 +93,7 @@ export async function GET(req: NextRequest) {
   }
 
   return NextResponse.json(
-    { images, blogs },
-    { headers: { "Cache-Control": "public, max-age=86400" } },
+    { menuImages, images, blogs },
+    { headers: { "Cache-Control": "no-store" } },
   );
 }
