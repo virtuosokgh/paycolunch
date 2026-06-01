@@ -69,6 +69,9 @@ function SkeletonGrid({ cols = 3, count = 6 }: { cols?: 3 | 4; count?: number })
 export default function DetailPanel({ all }: { all: Restaurant[] }) {
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
+  const favorites = useAppStore((s) => s.favorites);
+  const favoriteCounts = useAppStore((s) => s.favoriteCounts);
+  const toggleFavorite = useAppStore((s) => s.toggleFavorite);
   const restaurant = all.find((r) => r.id === selectedId);
 
   const [info, setInfo] = useState<PlaceInfo | null>(null);
@@ -124,6 +127,9 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   if (!restaurant) return null;
 
+  const isFav = favorites.has(restaurant.id);
+  const favCount = favoriteCounts[restaurant.id] ?? 0;
+
   return (
     <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
       <div className="sticky top-0 bg-white border-b px-4 py-3 flex items-center justify-between z-10">
@@ -133,13 +139,31 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
         >
           {restaurant.categoryGroup}
         </span>
-        <button
-          onClick={() => setSelectedId(null)}
-          className="text-gray-400 hover:text-gray-700 text-lg"
-          aria-label="닫기"
-        >
-          ✕
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => toggleFavorite(restaurant.id)}
+            className={`flex items-center gap-1 text-xl leading-none transition-transform hover:scale-110 ${
+              isFav ? "text-yellow-400" : "text-gray-300 hover:text-yellow-300"
+            }`}
+            title={isFav ? "즐겨찾기 해제" : "즐겨찾기 추가"}
+            aria-label="즐겨찾기"
+          >
+            {isFav ? "★" : "☆"}
+            {favCount > 0 && (
+              <span className="text-[11px] text-amber-600 font-bold tabular-nums">
+                {favCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setSelectedId(null)}
+            className="text-gray-400 hover:text-gray-700 text-lg"
+            aria-label="닫기"
+          >
+            ✕
+          </button>
+        </div>
       </div>
 
       <div className="p-4 space-y-4">
