@@ -188,7 +188,8 @@ function buildResult(name, rawAddress, picked, matchedBy) {
   const cat = stripHtml(picked.category) || null;
   const placeName = stripHtml(picked.title) || name;
   const roadOrAddr = picked.roadAddress || picked.address || address;
-  const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(placeName + " " + roadOrAddr)}`;
+  // 가게명만으로 검색 (주소까지 붙이면 네이버 지도 검색이 안 됨)
+  const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(name)}`;
   return {
     result: {
       id: `${name}-${zipcode ?? "x"}-${dong}-${rawAddress.slice(-10)}`.replace(/\s+/g, ""),

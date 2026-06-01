@@ -62,9 +62,8 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   if (!restaurant) return null;
 
-  const placeUrl =
-    restaurant.placeUrl ||
-    `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name + " " + restaurant.address)}`;
+  // 가게명만으로 네이버 지도 검색 (주소까지 붙이면 검색 결과가 안 나옴)
+  const placeUrl = `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`;
 
   return (
     <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
