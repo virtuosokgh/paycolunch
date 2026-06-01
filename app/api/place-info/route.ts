@@ -67,13 +67,24 @@ export async function GET(req: NextRequest) {
     `${cleanName} 가격`,
   ];
 
-  const [m1, m2, m3, imageRes, blogRes] = await Promise.allSettled([
+  // 이미지/블로그 검색을 두 가지 query로 시도: 지역 hint 있는 거 + 가게명만
+  const imageQueryNarrow = encodeURIComponent(`${cleanName} ${locationHint}`.trim());
+  const imageQueryBroad = encodeURIComponent(cleanName);
+  const blogQueryNarrow = imageQueryNarrow;
+  const blogQueryBroad = imageQueryBroad;
+
+  const [m1, m2, m3, imgNarrow, imgBroad, blogNarrow, blogBroad] = await Promise.allSettled([
     fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[0])}&display=10&filter=large&sort=sim`, { headers }),
     fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[1])}&display=8&filter=large&sort=sim`, { headers }),
     fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[2])}&display=6&filter=large&sort=sim`, { headers }),
-    fetch(`https://openapi.naver.com/v1/search/image?query=${query}&display=12&filter=large&sort=sim`, { headers }),
-    fetch(`https://openapi.naver.com/v1/search/blog.json?query=${query}&display=5&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${imageQueryNarrow}&display=12&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${imageQueryBroad}&display=12&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/blog.json?query=${blogQueryNarrow}&display=5&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/blog.json?query=${blogQueryBroad}&display=5&sort=sim`, { headers }),
   ]);
+
+  const imageRes = imgNarrow;
+  const blogRes = blogNarrow;
 
   const toImages = (res: PromiseSettledResult<Response>) =>
     res.status === "fulfilled" && res.value.ok
@@ -86,12 +97,16 @@ export async function GET(req: NextRequest) {
         )
       : Promise.resolve([] as Array<{ title: string; link: string; thumbnail: string }>);
 
-  const [menu1, menu2, menu3, allImages] = await Promise.all([
+  const [menu1, menu2, menu3, allImagesNarrow, allImagesBroad] = await Promise.all([
     toImages(m1),
     toImages(m2),
     toImages(m3),
     toImages(imageRes),
+    toImages(imgBroad),
   ]);
+  // narrow가 결과 적으면 broad로 보강
+  const allImages =
+    allImagesNarrow.length >= 6 ? allImagesNarrow : [...allImagesNarrow, ...allImagesBroad];
 
   // 메뉴 결과 합치기 + 중복 제거 (thumbnail URL 기준)
   const seen = new Set<string>();
@@ -137,15 +152,23 @@ export async function GET(req: NextRequest) {
     .slice(0, 9);
 
   let blogs: Array<{ title: string; link: string; description: string; bloggername: string; postdate: string }> = [];
-  if (blogRes.status === "fulfilled" && blogRes.value.ok) {
-    const json = await blogRes.value.json();
-    blogs = ((json.items ?? []) as NaverBlogItem[]).map((it) => ({
+  const collectBlogs = async (res: PromiseSettledResult<Response>) => {
+    if (res.status !== "fulfilled" || !res.value.ok) return [] as typeof blogs;
+    const json = await res.value.json();
+    return ((json.items ?? []) as NaverBlogItem[]).map((it) => ({
       title: stripHtml(it.title),
       link: it.link,
       description: stripHtml(it.description),
       bloggername: it.bloggername,
       postdate: it.postdate,
     }));
+  };
+  const blogsNarrow = await collectBlogs(blogRes);
+  blogs = blogsNarrow;
+  if (blogs.length < 3) {
+    const blogsBroad = await collectBlogs(blogBroad);
+    const seenLinks = new Set(blogs.map((b) => b.link));
+    blogs = [...blogs, ...blogsBroad.filter((b) => !seenLinks.has(b.link))].slice(0, 5);
   }
 
   return NextResponse.json(
