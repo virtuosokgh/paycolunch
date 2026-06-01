@@ -13,6 +13,7 @@ interface Filters {
   dong: string | null;
   categories: CategoryGroup[];
   search: string;
+  favoritesOnly: boolean;
 }
 
 interface AppState {
@@ -24,7 +25,13 @@ interface AppState {
   setDong: (dong: string | null) => void;
   toggleCategory: (c: CategoryGroup) => void;
   setSearch: (q: string) => void;
+  setFavoritesOnly: (v: boolean) => void;
   resetFilters: () => void;
+
+  favorites: Set<string>;
+  favoriteCounts: Record<string, number>;
+  toggleFavorite: (id: string) => void;
+  loadFavorites: () => Promise<void>;
 
   selectedId: string | null;
   setSelectedId: (id: string | null) => void;
@@ -46,9 +53,33 @@ const defaultFilters: Filters = {
   dong: null,
   categories: [],
   search: "",
+  favoritesOnly: false,
 };
 
-export const useAppStore = create<AppState>((set) => ({
+const LS_FAV_KEY = "paycolunch:favorites";
+
+function readLocalFavorites(): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(LS_FAV_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw) as string[];
+    return new Set(arr);
+  } catch {
+    return new Set();
+  }
+}
+
+function writeLocalFavorites(s: Set<string>) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(LS_FAV_KEY, JSON.stringify([...s]));
+  } catch {
+    // ignore
+  }
+}
+
+export const useAppStore = create<AppState>((set, get) => ({
   restaurants: [],
   setRestaurants: (rs) => set({ restaurants: rs }),
 
@@ -66,7 +97,47 @@ export const useAppStore = create<AppState>((set) => ({
       };
     }),
   setSearch: (q) => set((s) => ({ filters: { ...s.filters, search: q } })),
+  setFavoritesOnly: (v) => set((s) => ({ filters: { ...s.filters, favoritesOnly: v } })),
   resetFilters: () => set({ filters: defaultFilters }),
+
+  favorites: new Set<string>(),
+  favoriteCounts: {},
+  toggleFavorite: (id: string) => {
+    const current = get().favorites;
+    const next = new Set(current);
+    const willAdd = !next.has(id);
+    if (willAdd) next.add(id);
+    else next.delete(id);
+    writeLocalFavorites(next);
+    set({ favorites: next });
+
+    // 서버 동기화 (실패해도 로컬은 유지)
+    fetch(`/api/favorites?id=${encodeURIComponent(id)}`, {
+      method: "POST",
+      body: JSON.stringify({ action: willAdd ? "add" : "remove" }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((r) => r.json())
+      .then((data: { counts?: Record<string, number> }) => {
+        if (data.counts) set({ favoriteCounts: data.counts });
+      })
+      .catch(() => {});
+  },
+  loadFavorites: async () => {
+    // 1) 로컬 즉시 반영
+    const local = readLocalFavorites();
+    set({ favorites: local });
+    // 2) 서버에서 글로벌 즐겨찾기 카운트 가져오기
+    try {
+      const r = await fetch("/api/favorites", { cache: "no-store" });
+      if (r.ok) {
+        const data = (await r.json()) as { counts: Record<string, number> };
+        set({ favoriteCounts: data.counts ?? {} });
+      }
+    } catch {
+      // 서버 미연결이면 로컬만 사용
+    }
+  },
 
   selectedId: null,
   setSelectedId: (id) => set({ selectedId: id }),

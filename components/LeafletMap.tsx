@@ -17,19 +17,23 @@ function naverStyleIcon(
   category: CategoryGroup,
   name: string,
   state: "normal" | "hover" | "selected" = "normal",
+  favorited = false,
 ): L.DivIcon {
   const color = CATEGORY_COLORS[category];
   const icon = CATEGORY_ICONS[category];
   const isBig = state !== "normal";
   const ringSize = isBig ? 38 : 30;
   const ringClass = state === "selected" ? "marker-selected" : state === "hover" ? "marker-hover" : "";
-  const labelClass = state === "selected" ? "marker-label-selected" : "";
-  // 가게명이 너무 길면 자르고 …으로 표시
+  const labelClass = state === "selected" ? "marker-label-selected" : favorited ? "marker-label-fav" : "";
   const displayName = name.length > 10 ? name.slice(0, 10) + "…" : name;
+  const favBadge = favorited
+    ? `<span class="naver-marker-fav">★</span>`
+    : "";
   const html = `
     <div class="naver-marker ${ringClass}">
       <div class="naver-marker-ring" style="width:${ringSize}px; height:${ringSize}px; background:${color};">
         <span class="naver-marker-emoji" style="font-size:${isBig ? 18 : 14}px;">${icon}</span>
+        ${favBadge}
       </div>
       <div class="naver-marker-label ${labelClass}">${displayName}</div>
     </div>`;
@@ -63,6 +67,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
   const hoveredId = useAppStore((s) => s.hoveredId);
   const userLocation = useAppStore((s) => s.userLocation);
   const setMapBounds = useAppStore((s) => s.setMapBounds);
+  const favorites = useAppStore((s) => s.favorites);
 
   // init map once
   useEffect(() => {
@@ -217,7 +222,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     const newMarkers: L.Marker[] = [];
     for (const r of filtered) {
       const marker = L.marker([r.lat, r.lng], {
-        icon: naverStyleIcon(r.categoryGroup, r.name, "normal"),
+        icon: naverStyleIcon(r.categoryGroup, r.name, "normal", favorites.has(r.id)),
         title: r.name,
       });
       (marker as any)._cat = r.categoryGroup;
@@ -230,7 +235,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       newMarkers.push(marker);
     }
     cluster.addLayers(newMarkers);
-  }, [filtered, setSelectedId]);
+  }, [filtered, setSelectedId, favorites]);
 
   // selection / hover 강조
   useEffect(() => {
@@ -241,7 +246,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       if (!cat || !name) return;
       const state: "normal" | "hover" | "selected" =
         id === selectedId ? "selected" : id === hoveredId ? "hover" : "normal";
-      m.setIcon(naverStyleIcon(cat, name, state));
+      m.setIcon(naverStyleIcon(cat, name, state, favorites.has(id)));
       if (id === selectedId) m.setZIndexOffset(600);
       else if (id === hoveredId) m.setZIndexOffset(300);
       else m.setZIndexOffset(0);
@@ -250,7 +255,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       const m = markersRef.current.get(selectedId);
       if (m) mapRef.current.panTo(m.getLatLng());
     }
-  }, [selectedId, hoveredId]);
+  }, [selectedId, hoveredId, favorites]);
 
   // user location marker
   useEffect(() => {

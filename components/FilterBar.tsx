@@ -21,7 +21,9 @@ export default function FilterBar({
   const setDong = useAppStore((s) => s.setDong);
   const toggleCategory = useAppStore((s) => s.toggleCategory);
   const setSearch = useAppStore((s) => s.setSearch);
+  const setFavoritesOnly = useAppStore((s) => s.setFavoritesOnly);
   const resetFilters = useAppStore((s) => s.resetFilters);
+  const favorites = useAppStore((s) => s.favorites);
 
   const dongOptions = useMemo(() => {
     if (!filters.gu) return [];
@@ -68,6 +70,25 @@ export default function FilterBar({
           className="border border-gray-200 rounded-full pl-8 pr-3 py-1.5 text-sm w-52 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400"
         />
       </div>
+
+      <button
+        type="button"
+        onClick={() => setFavoritesOnly(!filters.favoritesOnly)}
+        className={`text-xs px-3 py-1.5 rounded-full border font-medium transition-colors flex items-center gap-1 ${
+          filters.favoritesOnly
+            ? "bg-yellow-400 text-white border-yellow-400 shadow-sm"
+            : "bg-white text-gray-700 border-gray-200 hover:bg-yellow-50 hover:border-yellow-300"
+        }`}
+        title="즐겨찾기한 가게만 보기"
+      >
+        <span>{filters.favoritesOnly ? "★" : "☆"}</span>
+        <span>즐겨찾기</span>
+        {favorites.size > 0 && (
+          <span className={`text-[10px] px-1 rounded ${filters.favoritesOnly ? "bg-yellow-500" : "bg-gray-100 text-gray-600"}`}>
+            {favorites.size}
+          </span>
+        )}
+      </button>
 
       <div className="flex flex-wrap gap-1.5">
         {CATEGORY_GROUPS.map((c) => {

@@ -21,6 +21,9 @@ export default function RestaurantList({
   const setSelectedId = useAppStore((s) => s.setSelectedId);
   const setHoveredId = useAppStore((s) => s.setHoveredId);
   const sortByDistance = useAppStore((s) => s.sortByDistance);
+  const favorites = useAppStore((s) => s.favorites);
+  const favoriteCounts = useAppStore((s) => s.favoriteCounts);
+  const toggleFavorite = useAppStore((s) => s.toggleFavorite);
 
   if (items.length === 0) {
     return (
@@ -40,6 +43,8 @@ export default function RestaurantList({
       {items.map((r) => {
         const selected = r.id === selectedId;
         const color = CATEGORY_COLORS[r.categoryGroup];
+        const isFav = favorites.has(r.id);
+        const favCount = favoriteCounts[r.id] ?? 0;
         return (
           <li
             key={r.id}
@@ -47,18 +52,39 @@ export default function RestaurantList({
             onMouseEnter={() => setHoveredId(r.id)}
             onMouseLeave={() => setHoveredId(null)}
             className={`group px-4 py-3.5 cursor-pointer transition-colors ${
-              selected ? "bg-emerald-50 border-l-4 border-emerald-500" : "border-l-4 border-transparent hover:bg-gray-50"
+              selected ? "bg-emerald-50 border-l-4 border-emerald-500" : "border-l-4 border-transparent hover:bg-amber-50/40"
             }`}
           >
-            <div className="flex items-baseline justify-between gap-2">
-              <h3 className="font-bold text-[15px] text-gray-900 leading-snug truncate">
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-bold text-[15px] text-gray-900 leading-snug truncate flex-1">
                 {r.name}
               </h3>
-              {sortByDistance && r.distance !== undefined && (
-                <span className="text-[12px] text-gray-500 flex-shrink-0 font-medium">
-                  {distanceLabel(r.distance)}
-                </span>
-              )}
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {sortByDistance && r.distance !== undefined && (
+                  <span className="text-[12px] text-gray-500 font-medium">
+                    {distanceLabel(r.distance)}
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavorite(r.id);
+                  }}
+                  className={`text-base leading-none transition-transform hover:scale-125 ${
+                    isFav ? "text-yellow-400" : "text-gray-300 hover:text-yellow-300"
+                  }`}
+                  title={isFav ? "즐겨찾기 해제" : "즐겨찾기 추가"}
+                  aria-label="즐겨찾기"
+                >
+                  {isFav ? "★" : "☆"}
+                </button>
+                {favCount > 0 && (
+                  <span className="text-[10px] text-amber-600 font-bold tabular-nums">
+                    {favCount}
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="flex items-center gap-1.5 mt-1.5">

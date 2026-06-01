@@ -19,6 +19,7 @@ export default function Home() {
   const sortByDistance = useAppStore((s) => s.sortByDistance);
   const selectedId = useAppStore((s) => s.selectedId);
   const mapBounds = useAppStore((s) => s.mapBounds);
+  const favorites = useAppStore((s) => s.favorites);
 
   useEffect(() => {
     fetch("/data/restaurants.json")
@@ -36,6 +37,11 @@ export default function Home() {
     return () => clearTimeout(t);
   }, []);
 
+  // 즐겨찾기 로드 (로컬 즉시 + 서버 카운트)
+  useEffect(() => {
+    useAppStore.getState().loadFavorites();
+  }, []);
+
   const withDistance = useMemo(() => {
     if (!userLocation) return restaurants.map((r) => ({ ...r }));
     return restaurants.map((r) => ({
@@ -44,7 +50,7 @@ export default function Home() {
     }));
   }, [restaurants, userLocation]);
 
-  // 필터 통과(구/동/카테고리/검색) — 지도에 그릴 마커는 이걸로
+  // 필터 통과(구/동/카테고리/검색/즐겨찾기) — 지도에 그릴 마커는 이걸로
   const filtered = useMemo(() => {
     let xs: Array<Restaurant & { distance?: number }> = withDistance;
     if (filters.gu) xs = xs.filter((r) => r.gu === filters.gu);
@@ -55,11 +61,14 @@ export default function Home() {
       const q = filters.search.trim().toLowerCase();
       xs = xs.filter((r) => r.name.toLowerCase().includes(q));
     }
+    if (filters.favoritesOnly) {
+      xs = xs.filter((r) => favorites.has(r.id));
+    }
     if (sortByDistance) {
       xs = [...xs].sort((a, b) => (a.distance ?? 1e9) - (b.distance ?? 1e9));
     }
     return xs;
-  }, [withDistance, filters, sortByDistance]);
+  }, [withDistance, filters, sortByDistance, favorites]);
 
   // 좌측 리스트는 현재 지도 viewport 안의 식당만
   const visibleInView = useMemo(() => {
