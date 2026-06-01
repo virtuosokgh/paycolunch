@@ -51,7 +51,7 @@ export default function RestaurantList({
             onClick={() => setSelectedId(r.id)}
             onMouseEnter={() => setHoveredId(r.id)}
             onMouseLeave={() => setHoveredId(null)}
-            className={`group px-4 py-3.5 cursor-pointer transition-colors ${
+            className={`group px-3 sm:px-4 py-3 sm:py-3.5 cursor-pointer transition-colors active:bg-emerald-100 ${
               selected ? "bg-emerald-50 border-l-4 border-emerald-500" : "border-l-4 border-transparent hover:bg-amber-50/40"
             }`}
           >

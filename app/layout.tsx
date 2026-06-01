@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   description: "AXZ 직원이 사용할 수 있는 PAYCO 식권 가맹점을 지도에서 찾아보세요",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#10b981",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">

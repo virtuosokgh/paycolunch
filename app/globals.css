@@ -6,6 +6,29 @@ html,
 body,
 #__next {
   height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 모바일에서 가로 스크롤바를 얇게 (또는 안 보이게) */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+/* iOS bouncing 방지, 부드러운 터치 스크롤 */
+.overscroll-contain {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {

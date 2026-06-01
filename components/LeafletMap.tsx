@@ -299,7 +299,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
         onClick={() => (userLocation ? clearUserLocation() : requestUserLocation())}
         title={userLocation ? "내 위치 끄기" : "현재 위치로 이동"}
         aria-label="현재 위치"
-        className={`absolute bottom-6 right-6 z-[400] w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-colors ${
+        className={`absolute right-4 sm:right-6 bottom-[160px] sm:bottom-6 z-[460] w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-colors ${
           userLocation
             ? "bg-blue-500 text-white hover:bg-blue-600"
             : "bg-white text-gray-700 hover:bg-gray-50 border"

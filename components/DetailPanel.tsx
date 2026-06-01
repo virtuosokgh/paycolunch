@@ -166,7 +166,7 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
     setLightbox((s) => (s && s.index < s.images.length - 1 ? { ...s, index: s.index + 1 } : s));
 
   return (
-    <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
+    <aside className="w-full sm:w-[420px] flex-shrink-0 sm:border-l bg-white overflow-y-auto h-full">
       <div className="sticky top-0 bg-white border-b px-4 py-3 flex items-center justify-between z-10">
         <span
           className="inline-block px-2 py-0.5 rounded text-xs text-white"
