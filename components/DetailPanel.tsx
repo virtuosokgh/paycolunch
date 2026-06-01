@@ -21,6 +21,7 @@ interface PlaceInfo {
   menuImages: PlaceImage[];
   images: PlaceImage[];
   blogs: PlaceBlog[];
+  error?: string;
 }
 
 function formatDate(yyyymmdd: string): string {
@@ -90,12 +91,18 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
     const infoUrl = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
     fetch(infoUrl, { cache: "no-store" })
-      .then((r) => r.json())
+      .then(async (r) => {
+        const data = await r.json();
+        if (!r.ok) {
+          return { menuImages: [], images: [], blogs: [], error: data?.error ?? `HTTP ${r.status}` };
+        }
+        return data as PlaceInfo;
+      })
       .then((data: PlaceInfo) => {
         if (!cancelled) setInfo(data);
       })
       .catch(() => {
-        if (!cancelled) setInfo({ menuImages: [], images: [], blogs: [] });
+        if (!cancelled) setInfo({ menuImages: [], images: [], blogs: [], error: "네트워크 오류" });
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -174,16 +181,30 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
         {/* Menu */}
         <section>
           <h3 className="text-sm font-bold text-gray-800 mb-2">🍴 메뉴</h3>
-          <p className="text-[11px] text-gray-400 mb-2">
-            * 네이버는 정확한 메뉴 데이터를 API로 공개하지 않아, 메뉴판 사진으로 대체합니다.
-            네이버 지도 페이지를 열면 정식 메뉴/가격 확인 가능합니다.
-          </p>
-          {loading && !info ? (
-            <SkeletonGrid cols={4} count={8} />
-          ) : info && (info.menuImages ?? []).length > 0 ? (
-            <ImageGrid images={(info.menuImages ?? []).slice(0, 8)} cols={4} />
+          {info?.error ? (
+            <div className="text-xs text-red-600 bg-red-50 border border-red-200 rounded p-3 leading-relaxed">
+              <div className="font-semibold mb-1">⚠️ API 호출 실패: {info.error}</div>
+              <div>
+                Vercel에 <code className="bg-white px-1 rounded">NAVER_CLIENT_ID</code> /{" "}
+                <code className="bg-white px-1 rounded">NAVER_CLIENT_SECRET</code> 환경변수가
+                등록되지 않았거나, 로컬 <code className="bg-white px-1 rounded">.env.local</code>이
+                비어있을 가능성이 큽니다.
+              </div>
+            </div>
           ) : (
-            <div className="text-xs text-gray-400 py-2">메뉴 이미지 결과 없음</div>
+            <>
+              <p className="text-[11px] text-gray-400 mb-2">
+                * 네이버는 정확한 메뉴 데이터를 API로 공개하지 않아, 메뉴판 사진으로 대체합니다.
+                네이버 지도 페이지를 열면 정식 메뉴/가격 확인 가능합니다.
+              </p>
+              {loading && !info ? (
+                <SkeletonGrid cols={4} count={8} />
+              ) : info && (info.menuImages ?? []).length > 0 ? (
+                <ImageGrid images={(info.menuImages ?? []).slice(0, 8)} cols={4} />
+              ) : (
+                <div className="text-xs text-gray-400 py-2">메뉴 이미지 결과 없음</div>
+              )}
+            </>
           )}
         </section>
 
