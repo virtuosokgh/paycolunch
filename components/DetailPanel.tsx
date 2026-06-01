@@ -18,10 +18,15 @@ interface PlaceBlog {
   bloggername: string;
   postdate: string;
 }
+interface ExtractedMenu {
+  name: string;
+  price: string;
+}
 interface PlaceInfo {
   menuImages: PlaceImage[];
   images: PlaceImage[];
   blogs: PlaceBlog[];
+  menuExtracted?: ExtractedMenu[];
   error?: string;
 }
 
@@ -232,10 +237,41 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
           🗺️ 네이버 지도에서 자세히 보기
         </a>
 
+        {/* 본문에서 추출한 메뉴 */}
+        {info && (info.menuExtracted ?? []).length > 0 && (
+          <section className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-3">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-sm font-bold text-emerald-800">
+                📋 본문에서 추출한 메뉴
+              </h3>
+              <span className="text-[10px] text-emerald-600 font-medium">
+                {(info.menuExtracted ?? []).length}개
+              </span>
+            </div>
+            <p className="text-[10px] text-emerald-700/80 mb-2 leading-relaxed">
+              ※ 블로그 리뷰 본문에서 자동 추출한 메뉴/가격입니다. 정확하지 않을 수 있어요.
+              정식 메뉴는 아래 <span className="font-semibold">네이버 지도에서 자세히 보기</span>에서 확인하세요.
+            </p>
+            <ul className="space-y-1">
+              {(info.menuExtracted ?? []).slice(0, 12).map((m, i) => (
+                <li
+                  key={i}
+                  className="flex justify-between items-baseline gap-3 text-sm border-b border-emerald-200/50 pb-1 last:border-0 last:pb-0"
+                >
+                  <span className="text-gray-800 truncate">{m.name}</span>
+                  <span className="font-bold text-emerald-700 flex-shrink-0 tabular-nums">
+                    {m.price}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Menu */}
         <section>
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-bold text-gray-800">🍴 메뉴</h3>
+            <h3 className="text-sm font-bold text-gray-800">🍴 메뉴 사진</h3>
             {allImages.length > 0 && (
               <button
                 type="button"
