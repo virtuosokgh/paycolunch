@@ -237,7 +237,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     cluster.addLayers(newMarkers);
   }, [filtered, setSelectedId, favorites]);
 
-  // selection / hover 강조
+  // 마커 상태 (selected / hover) 시각 업데이트
   useEffect(() => {
     if (!mapRef.current) return;
     markersRef.current.forEach((m, id) => {
@@ -251,11 +251,23 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       else if (id === hoveredId) m.setZIndexOffset(300);
       else m.setZIndexOffset(0);
     });
-    if (selectedId) {
-      const m = markersRef.current.get(selectedId);
-      if (m) mapRef.current.panTo(m.getLatLng());
-    }
   }, [selectedId, hoveredId, favorites]);
+
+  // 선택된 마커로 포커싱 (클러스터 풀기 + 부드러운 줌인)
+  useEffect(() => {
+    if (!mapRef.current || !clusterRef.current || !selectedId) return;
+    const m = markersRef.current.get(selectedId);
+    if (!m) return;
+    const latlng = m.getLatLng();
+    const MIN_FOCUS_ZOOM = 17;
+
+    // 클러스터 안에 묶여있으면 풀어서 노출, 아니면 콜백 즉시 호출
+    clusterRef.current.zoomToShowLayer(m, () => {
+      const map = mapRef.current!;
+      const targetZoom = Math.max(map.getZoom(), MIN_FOCUS_ZOOM);
+      map.flyTo(latlng, targetZoom, { duration: 0.6 });
+    });
+  }, [selectedId]);
 
   // user location marker
   useEffect(() => {
