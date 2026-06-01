@@ -72,18 +72,24 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   const [info, setInfo] = useState<PlaceInfo | null>(null);
   const [loading, setLoading] = useState(false);
-  const [resolving, setResolving] = useState(false);
+  const [resolvedUrl, setResolvedUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (!restaurant) {
       setInfo(null);
+      setResolvedUrl(null);
       return;
     }
     let cancelled = false;
     setLoading(true);
     setInfo(null);
-    const url = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
-    fetch(url, { cache: "no-store" })
+    // 폴백 URL 즉시 설정 (resolve API 응답 전에도 버튼 작동하도록)
+    setResolvedUrl(
+      `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`,
+    );
+
+    const infoUrl = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
+    fetch(infoUrl, { cache: "no-store" })
       .then((r) => r.json())
       .then((data: PlaceInfo) => {
         if (!cancelled) setInfo(data);
@@ -94,34 +100,22 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
       .finally(() => {
         if (!cancelled) setLoading(false);
       });
+
+    // 정확한 가게 페이지 URL(좌표 hint + 메뉴 탭) 백그라운드 resolve
+    const resolveUrl = `/api/place-resolve?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`;
+    fetch(resolveUrl, { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled && data.url) setResolvedUrl(data.url);
+      })
+      .catch(() => {});
+
     return () => {
       cancelled = true;
     };
-  }, [restaurant?.id, restaurant?.name, restaurant?.address]);
+  }, [restaurant?.id, restaurant?.name, restaurant?.address, restaurant?.categoryGroup]);
 
   if (!restaurant) return null;
-
-  const handleOpenNaverMap = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (resolving) return;
-    setResolving(true);
-    // 사용자가 광고 차단/팝업 차단으로 새 탭이 막힐 가능성 — 미리 빈 탭을 열어두고 URL만 갈아끼움
-    const newWin = window.open("about:blank", "_blank");
-    try {
-      const res = await fetch(
-        `/api/place-resolve?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`,
-      );
-      const { url } = await res.json();
-      if (newWin) newWin.location.href = url;
-      else window.open(url, "_blank");
-    } catch {
-      const fallback = `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`;
-      if (newWin) newWin.location.href = fallback;
-      else window.open(fallback, "_blank");
-    } finally {
-      setResolving(false);
-    }
-  };
 
   return (
     <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
@@ -168,14 +162,14 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={handleOpenNaverMap}
-          disabled={resolving}
-          className="block w-full text-center px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-300 text-white rounded font-semibold text-sm"
+        <a
+          href={resolvedUrl ?? `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full text-center px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded font-semibold text-sm"
         >
-          {resolving ? "🔍 가게 페이지 찾는 중…" : "🗺️ 네이버 지도에서 자세히 보기"}
-        </button>
+          🗺️ 네이버 지도에서 자세히 보기
+        </a>
 
         {/* Menu */}
         <section>
