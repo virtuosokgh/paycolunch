@@ -59,11 +59,18 @@ export async function GET(req: NextRequest) {
   };
 
   // 메뉴 검색: 가게명 + "메뉴판"만 (지역 hint 빼면 결과가 더 많음)
-  const menuQuery = encodeURIComponent(`${cleanName} 메뉴판`.trim());
+  // 메뉴 키워드 여러 개 시도 — 가게마다 검색되는 키워드가 달라서
+  const menuQueries = [
+    `${cleanName} 메뉴`,
+    `${cleanName} 메뉴판`,
+    `${cleanName} 가격`,
+  ];
 
-  const [menuRes, imageRes, blogRes] = await Promise.allSettled([
-    fetch(`https://openapi.naver.com/v1/search/image?query=${menuQuery}&display=8&filter=large&sort=sim`, { headers }),
-    fetch(`https://openapi.naver.com/v1/search/image?query=${query}&display=9&filter=large&sort=sim`, { headers }),
+  const [m1, m2, m3, imageRes, blogRes] = await Promise.allSettled([
+    fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[0])}&display=10&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[1])}&display=8&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${encodeURIComponent(menuQueries[2])}&display=6&filter=large&sort=sim`, { headers }),
+    fetch(`https://openapi.naver.com/v1/search/image?query=${query}&display=12&filter=large&sort=sim`, { headers }),
     fetch(`https://openapi.naver.com/v1/search/blog.json?query=${query}&display=5&sort=sim`, { headers }),
   ]);
 
@@ -78,7 +85,28 @@ export async function GET(req: NextRequest) {
         )
       : Promise.resolve([] as Array<{ title: string; link: string; thumbnail: string }>);
 
-  const [menuImages, images] = await Promise.all([toImages(menuRes), toImages(imageRes)]);
+  const [menu1, menu2, menu3, allImages] = await Promise.all([
+    toImages(m1),
+    toImages(m2),
+    toImages(m3),
+    toImages(imageRes),
+  ]);
+
+  // 메뉴 결과 합치기 + 중복 제거 (thumbnail URL 기준)
+  const seen = new Set<string>();
+  const dedupe = (arr: Array<{ title: string; link: string; thumbnail: string }>) =>
+    arr.filter((it) => {
+      if (seen.has(it.thumbnail)) return false;
+      seen.add(it.thumbnail);
+      return true;
+    });
+
+  let menuImages = dedupe([...menu1, ...menu2, ...menu3]);
+  // 메뉴 결과가 부족하면 일반 이미지에서 채워서 최소 8개 보장
+  if (menuImages.length < 8) {
+    menuImages = [...menuImages, ...dedupe(allImages)].slice(0, 12);
+  }
+  const images = allImages.filter((it) => !menuImages.some((m) => m.thumbnail === it.thumbnail));
 
   let blogs: Array<{ title: string; link: string; description: string; bloggername: string; postdate: string }> = [];
   if (blogRes.status === "fulfilled" && blogRes.value.ok) {

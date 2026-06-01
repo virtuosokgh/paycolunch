@@ -68,7 +68,17 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     const vworldUrl = (layer: string, ext: "png" | "jpeg" = "png") =>
       `https://api.vworld.kr/req/wmts/1.0.0/${VWORLD_KEY}/${layer}/{z}/{y}/{x}.${ext}`;
     const vworldAttr =
-      '<a href="https://www.vworld.kr">VWorld</a> | 국토교통부 ©';
+      '<a href="https://www.vworld.kr">VWorld</a> | 국토교통부 © | <a href="https://carto.com/attributions">CARTO</a>';
+
+    // CartoDB Voyager — VWorld 실패 시 fallback으로도 사용
+    const carto = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 20,
+        subdomains: "abcd",
+        attribution: vworldAttr,
+      },
+    );
 
     // VWorld 한국 지도 (네이버급 디테일)
     const base = L.tileLayer(vworldUrl("Base"), {
@@ -89,11 +99,29 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     });
     const satelliteWithLabels = L.layerGroup([satellite, hybridLabels]);
 
+    // VWorld 타일 에러 카운트 — 다수 실패 시 자동 CartoDB로 전환
+    let vworldErrors = 0;
+    let vworldFallbackTriggered = false;
+    const onTileError = () => {
+      vworldErrors++;
+      if (vworldErrors >= 5 && !vworldFallbackTriggered) {
+        vworldFallbackTriggered = true;
+        console.warn("VWorld tiles failing — falling back to CartoDB");
+        if (map.hasLayer(base)) {
+          map.removeLayer(base);
+          carto.addTo(map);
+        }
+      }
+    };
+    base.on("tileerror", onTileError);
+    gray.on("tileerror", onTileError);
+    satellite.on("tileerror", onTileError);
+
     base.addTo(map);
 
     L.control
       .layers(
-        { "🗺️ 일반": base, "🌫️ 회색": gray, "🛰️ 위성": satelliteWithLabels },
+        { "🗺️ 일반": base, "🌫️ 회색": gray, "🛰️ 위성": satelliteWithLabels, "🌐 기본(CartoDB)": carto },
         {},
         { position: "topright", collapsed: false },
       )
@@ -216,7 +244,8 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       });
       m.addTo(mapRef.current);
       userMarkerRef.current = m;
-      mapRef.current.panTo([userLocation.lat, userLocation.lng]);
+      // 위치만 옮기지 말고 동네 디테일이 보이는 줌으로 (도로명/건물 outline 보임)
+      mapRef.current.setView([userLocation.lat, userLocation.lng], 17);
     }
   }, [userLocation]);
 
