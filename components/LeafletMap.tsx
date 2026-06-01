@@ -52,10 +52,48 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       zoom: DEFAULT_ZOOM,
       zoomControl: true,
     });
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+
+    // CartoDB Voyager — 모던하고 깔끔한 디자인 (OSM 원본보다 훨씬 보기 좋음)
+    const voyager = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 20,
+        subdomains: "abcd",
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      },
+    );
+    // 위성 — Esri World Imagery
+    const satellite = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      {
+        maxZoom: 19,
+        attribution: "Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics",
+      },
+    );
+    // 지명 라벨 (위성 위에 얹어서 한국어 지명 보이게)
+    const labels = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 20,
+        subdomains: "abcd",
+        pane: "overlayPane",
+        opacity: 0.9,
+      },
+    );
+    // 위성+라벨 묶음
+    const satelliteWithLabels = L.layerGroup([satellite, labels]);
+
+    voyager.addTo(map);
+
+    L.control
+      .layers(
+        { "🗺️ 일반": voyager, "🛰️ 위성": satelliteWithLabels },
+        {},
+        { position: "topright", collapsed: false },
+      )
+      .addTo(map);
+
     mapRef.current = map;
 
     const cluster = (L as any).markerClusterGroup({
