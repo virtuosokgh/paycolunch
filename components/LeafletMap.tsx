@@ -64,60 +64,42 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
       zoomControl: true,
     });
 
-    // CartoDB Voyager — 모던하고 깔끔한 디자인 (OSM 원본보다 훨씬 보기 좋음)
-    const voyager = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-      {
-        maxZoom: 20,
-        subdomains: "abcd",
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      },
-    );
-    // 위성 — Esri World Imagery
-    const satellite = L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-      {
-        maxZoom: 19,
-        attribution: "Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics",
-      },
-    );
-    // 지명 라벨 (위성 위에 얹어서 한국어 지명 보이게)
-    const labels = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
-      {
-        maxZoom: 20,
-        subdomains: "abcd",
-        pane: "overlayPane",
-        opacity: 0.9,
-      },
-    );
-    // 위성+라벨 묶음
-    const satelliteWithLabels = L.layerGroup([satellite, labels]);
+    const VWORLD_KEY = process.env.NEXT_PUBLIC_VWORLD_KEY;
+    const vworldUrl = (layer: string, ext: "png" | "jpeg" = "png") =>
+      `https://api.vworld.kr/req/wmts/1.0.0/${VWORLD_KEY}/${layer}/{z}/{y}/{x}.${ext}`;
+    const vworldAttr =
+      '<a href="https://www.vworld.kr">VWorld</a> | 국토교통부 ©';
 
-    voyager.addTo(map);
+    // VWorld 한국 지도 (네이버급 디테일)
+    const base = L.tileLayer(vworldUrl("Base"), {
+      maxZoom: 19,
+      attribution: vworldAttr,
+    });
+    const gray = L.tileLayer(vworldUrl("Gray"), {
+      maxZoom: 19,
+      attribution: vworldAttr,
+    });
+    const satellite = L.tileLayer(vworldUrl("Satellite", "jpeg"), {
+      maxZoom: 19,
+      attribution: vworldAttr,
+    });
+    const hybridLabels = L.tileLayer(vworldUrl("Hybrid"), {
+      maxZoom: 19,
+      pane: "overlayPane",
+    });
+    const satelliteWithLabels = L.layerGroup([satellite, hybridLabels]);
+
+    base.addTo(map);
 
     L.control
       .layers(
-        { "🗺️ 일반": voyager, "🛰️ 위성": satelliteWithLabels },
+        { "🗺️ 일반": base, "🌫️ 회색": gray, "🛰️ 위성": satelliteWithLabels },
         {},
         { position: "topright", collapsed: false },
       )
       .addTo(map);
 
     mapRef.current = map;
-
-    const pushBounds = () => {
-      const b = map.getBounds();
-      setMapBounds({
-        south: b.getSouth(),
-        west: b.getWest(),
-        north: b.getNorth(),
-        east: b.getEast(),
-      });
-    };
-    map.on("moveend", pushBounds);
-    map.whenReady(() => setTimeout(pushBounds, 0));
 
     const cluster = (L as any).markerClusterGroup({
       showCoverageOnHover: false,
@@ -127,9 +109,55 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     clusterRef.current = cluster;
 
     return () => {
-      map.off("moveend", pushBounds);
       map.remove();
       mapRef.current = null;
+    };
+  }, []);
+
+  // 지도 bounds 추적 — ResizeObserver로 컨테이너 크기까지 추적
+  useEffect(() => {
+    const m = mapRef.current;
+    if (!m) return;
+    const container = m.getContainer();
+    const update = () => {
+      const b = m.getBounds();
+      const south = b.getSouth();
+      const north = b.getNorth();
+      const west = b.getWest();
+      const east = b.getEast();
+      // 컨테이너 크기 0 이거나 bounds가 점에 수렴하면 무효 — viewport 무시
+      if (Math.abs(north - south) < 1e-4 || Math.abs(east - west) < 1e-4) {
+        setMapBounds(null);
+        return;
+      }
+      setMapBounds({ south, west, north, east });
+    };
+    m.on("moveend", update);
+    m.on("zoomend", update);
+    m.on("load", update);
+
+    const ro = new ResizeObserver(() => {
+      m.invalidateSize();
+      update();
+    });
+    ro.observe(container);
+
+    // 초기 보정 (next tick + 짧은 딜레이)
+    requestAnimationFrame(() => {
+      m.invalidateSize();
+      update();
+    });
+    const t = setTimeout(() => {
+      m.invalidateSize();
+      update();
+    }, 500);
+
+    return () => {
+      m.off("moveend", update);
+      m.off("zoomend", update);
+      m.off("load", update);
+      ro.disconnect();
+      clearTimeout(t);
     };
   }, [setMapBounds]);
 
