@@ -86,7 +86,7 @@ export default function Home() {
     <div className="h-screen flex flex-col">
       <header className="border-b bg-white px-4 py-2.5">
         <h1 className="font-bold text-lg">
-          🍽️ 성남 점심 지도 <span className="text-xs font-normal text-gray-500">— PAYCO 식권 가맹점</span>
+          🍽️ AXZ음식점 찾기 <span className="text-xs font-normal text-gray-500">— PAYCO 식권 가맹점</span>
         </h1>
       </header>
       <FilterBar all={restaurants} filteredCount={filtered.length} visibleCount={visibleInView.length} />

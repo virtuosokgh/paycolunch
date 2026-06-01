@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "성남 점심 지도 — PAYCO 가맹점",
-  description: "성남시 PAYCO 식권 가맹점 1,100여 곳을 지도에서 찾아보세요",
+  title: "AXZ음식점 찾기",
+  description: "AXZ 직원이 사용할 수 있는 PAYCO 식권 가맹점을 지도에서 찾아보세요",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
