@@ -62,7 +62,7 @@ export const useAppStore = create<AppState>((set) => ({
   sortByDistance: false,
   requestUserLocation: async () => {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
-      alert("브라우저가 위치 정보를 지원하지 않습니다.");
+      alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
       return;
     }
     return new Promise((resolve) => {
@@ -75,7 +75,23 @@ export const useAppStore = create<AppState>((set) => ({
           resolve();
         },
         (err) => {
-          alert(`위치 접근 실패: ${err.message}`);
+          let msg = "";
+          if (err.code === 1) {
+            msg =
+              "위치 권한이 차단되어 있어요.\n\n" +
+              "📍 권한 다시 켜는 법 (Chrome)\n" +
+              "1. 주소창 좌측 자물쇠/방패 아이콘 클릭\n" +
+              "2. '사이트 설정' → '위치'\n" +
+              "3. '차단' → '허용'으로 변경\n" +
+              "4. 페이지 새로고침";
+          } else if (err.code === 2) {
+            msg = "현재 위치를 가져올 수 없습니다. (네트워크나 GPS를 확인해주세요)";
+          } else if (err.code === 3) {
+            msg = "위치 요청 시간이 초과되었습니다. 다시 시도해주세요.";
+          } else {
+            msg = `위치 접근 실패: ${err.message}`;
+          }
+          alert(msg);
           resolve();
         },
         { enableHighAccuracy: false, timeout: 8000 },
