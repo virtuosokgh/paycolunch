@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useAppStore } from "../lib/store";
 import { CATEGORY_COLORS } from "../lib/categoryMap";
 import type { Restaurant } from "../lib/types";
+import ImageLightbox, { type LightboxImage } from "./ImageLightbox";
 
 interface PlaceImage {
   title: string;
@@ -29,17 +30,24 @@ function formatDate(yyyymmdd: string): string {
   return `${yyyymmdd.slice(0, 4)}.${yyyymmdd.slice(4, 6)}.${yyyymmdd.slice(6, 8)}`;
 }
 
-function ImageGrid({ images, cols = 3 }: { images: PlaceImage[]; cols?: 3 | 4 }) {
+function ImageGrid({
+  images,
+  cols = 3,
+  onPick,
+}: {
+  images: PlaceImage[];
+  cols?: 3 | 4;
+  onPick: (i: number) => void;
+}) {
   const gridClass = cols === 4 ? "grid-cols-4" : "grid-cols-3";
   return (
     <div className={`grid ${gridClass} gap-1`}>
       {images.map((img, i) => (
-        <a
+        <button
           key={i}
-          href={img.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block aspect-square overflow-hidden rounded bg-gray-100"
+          type="button"
+          onClick={() => onPick(i)}
+          className="block aspect-square overflow-hidden rounded bg-gray-100 group"
           title={img.title}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -47,9 +55,9 @@ function ImageGrid({ images, cols = 3 }: { images: PlaceImage[]; cols?: 3 | 4 })
             src={img.thumbnail}
             alt={img.title}
             loading="lazy"
-            className="w-full h-full object-cover hover:scale-105 transition-transform"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform"
           />
-        </a>
+        </button>
       ))}
     </div>
   );
@@ -77,6 +85,7 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
   const [info, setInfo] = useState<PlaceInfo | null>(null);
   const [loading, setLoading] = useState(false);
   const [resolvedUrl, setResolvedUrl] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: LightboxImage[]; index: number } | null>(null);
 
   useEffect(() => {
     if (!restaurant) {
@@ -129,6 +138,27 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
   const isFav = favorites.has(restaurant.id);
   const favCount = favoriteCounts[restaurant.id] ?? 0;
+
+  const menuImagesArr = info?.menuImages ?? [];
+  const photoImagesArr = info?.images ?? [];
+  // 전체 보기용: 메뉴 → 일반 사진 순서로 합침, 중복 제거
+  const allImagesSeen = new Set<string>();
+  const allImages: LightboxImage[] = [];
+  for (const im of [...menuImagesArr, ...photoImagesArr]) {
+    if (!allImagesSeen.has(im.thumbnail)) {
+      allImagesSeen.add(im.thumbnail);
+      allImages.push(im);
+    }
+  }
+
+  const openLightbox = (images: LightboxImage[], idx: number) => {
+    setLightbox({ images, index: idx });
+  };
+  const closeLightbox = () => setLightbox(null);
+  const prevImage = () =>
+    setLightbox((s) => (s && s.index > 0 ? { ...s, index: s.index - 1 } : s));
+  const nextImage = () =>
+    setLightbox((s) => (s && s.index < s.images.length - 1 ? { ...s, index: s.index + 1 } : s));
 
   return (
     <aside className="w-[420px] flex-shrink-0 border-l bg-white overflow-y-auto">
@@ -204,7 +234,18 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
 
         {/* Menu */}
         <section>
-          <h3 className="text-sm font-bold text-gray-800 mb-2">🍴 메뉴</h3>
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-sm font-bold text-gray-800">🍴 메뉴</h3>
+            {allImages.length > 0 && (
+              <button
+                type="button"
+                onClick={() => openLightbox(allImages, 0)}
+                className="text-[11px] text-emerald-600 hover:text-emerald-700 font-semibold"
+              >
+                전체 보기 ({allImages.length}장) →
+              </button>
+            )}
+          </div>
           {info?.error ? (
             <div className="text-xs text-red-600 bg-red-50 border border-red-200 rounded p-3 leading-relaxed">
               <div className="font-semibold mb-1">⚠️ API 호출 실패: {info.error}</div>
@@ -219,12 +260,16 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
             <>
               <p className="text-[11px] text-gray-400 mb-2">
                 * 네이버는 정확한 메뉴 데이터를 API로 공개하지 않아, 메뉴판 사진으로 대체합니다.
-                네이버 지도 페이지를 열면 정식 메뉴/가격 확인 가능합니다.
+                사진을 클릭하면 크게 볼 수 있어요.
               </p>
               {loading && !info ? (
                 <SkeletonGrid cols={4} count={8} />
-              ) : info && (info.menuImages ?? []).length > 0 ? (
-                <ImageGrid images={(info.menuImages ?? []).slice(0, 8)} cols={4} />
+              ) : menuImagesArr.length > 0 ? (
+                <ImageGrid
+                  images={menuImagesArr.slice(0, 8)}
+                  cols={4}
+                  onPick={(i) => openLightbox(allImages, i)}
+                />
               ) : (
                 <div className="text-xs text-gray-400 py-2">메뉴 이미지 결과 없음</div>
               )}
@@ -237,8 +282,17 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
           <h3 className="text-sm font-bold text-gray-800 mb-2">📸 음식 사진</h3>
           {loading && !info ? (
             <SkeletonGrid cols={3} count={6} />
-          ) : info && (info.images ?? []).length > 0 ? (
-            <ImageGrid images={(info.images ?? []).slice(0, 9)} cols={3} />
+          ) : photoImagesArr.length > 0 ? (
+            <ImageGrid
+              images={photoImagesArr.slice(0, 9)}
+              cols={3}
+              onPick={(i) => {
+                // 전체 이미지 배열 안에서의 index 계산 (메뉴 + 사진 순서)
+                const thumb = photoImagesArr[i].thumbnail;
+                const idx = allImages.findIndex((im) => im.thumbnail === thumb);
+                openLightbox(allImages, idx >= 0 ? idx : 0);
+              }}
+            />
           ) : (
             <div className="text-xs text-gray-400 py-2">사진 결과 없음</div>
           )}
@@ -292,6 +346,16 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
           </a>
         )}
       </div>
+
+      {lightbox && (
+        <ImageLightbox
+          images={lightbox.images}
+          index={lightbox.index}
+          onClose={closeLightbox}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
+      )}
     </aside>
   );
 }
