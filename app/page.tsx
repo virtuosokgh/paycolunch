@@ -18,6 +18,7 @@ export default function Home() {
   const userLocation = useAppStore((s) => s.userLocation);
   const sortByDistance = useAppStore((s) => s.sortByDistance);
   const selectedId = useAppStore((s) => s.selectedId);
+  const mapBounds = useAppStore((s) => s.mapBounds);
 
   useEffect(() => {
     fetch("/data/restaurants.json")
@@ -34,6 +35,7 @@ export default function Home() {
     }));
   }, [restaurants, userLocation]);
 
+  // 필터 통과(구/동/카테고리/검색) — 지도에 그릴 마커는 이걸로
   const filtered = useMemo(() => {
     let xs: Array<Restaurant & { distance?: number }> = withDistance;
     if (filters.gu) xs = xs.filter((r) => r.gu === filters.gu);
@@ -50,6 +52,18 @@ export default function Home() {
     return xs;
   }, [withDistance, filters, sortByDistance]);
 
+  // 좌측 리스트는 현재 지도 viewport 안의 식당만
+  const visibleInView = useMemo(() => {
+    if (!mapBounds) return filtered;
+    return filtered.filter(
+      (r) =>
+        r.lat >= mapBounds.south &&
+        r.lat <= mapBounds.north &&
+        r.lng >= mapBounds.west &&
+        r.lng <= mapBounds.east,
+    );
+  }, [filtered, mapBounds]);
+
   return (
     <div className="h-screen flex flex-col">
       <header className="border-b bg-white px-4 py-2.5">
@@ -57,10 +71,10 @@ export default function Home() {
           🍽️ 성남 점심 지도 <span className="text-xs font-normal text-gray-500">— PAYCO 식권 가맹점</span>
         </h1>
       </header>
-      <FilterBar all={restaurants} filteredCount={filtered.length} />
+      <FilterBar all={restaurants} filteredCount={filtered.length} visibleCount={visibleInView.length} />
       <div className="flex flex-1 min-h-0">
-        <div className="w-[320px] flex-shrink-0 border-r bg-white overflow-y-auto">
-          <RestaurantList items={filtered} />
+        <div className="w-[340px] flex-shrink-0 border-r bg-white overflow-y-auto">
+          <RestaurantList items={visibleInView} totalFiltered={filtered.length} />
         </div>
         <div className="flex-1 relative">
           <LeafletMap filtered={filtered} />

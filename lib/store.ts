@@ -1,6 +1,13 @@
 import { create } from "zustand";
 import type { CategoryGroup, Restaurant, UserLocation } from "./types";
 
+export interface MapBounds {
+  south: number;
+  west: number;
+  north: number;
+  east: number;
+}
+
 interface Filters {
   gu: string | null;
   dong: string | null;
@@ -26,6 +33,9 @@ interface AppState {
   sortByDistance: boolean;
   requestUserLocation: () => Promise<void>;
   clearUserLocation: () => void;
+
+  mapBounds: MapBounds | null;
+  setMapBounds: (b: MapBounds | null) => void;
 }
 
 const defaultFilters: Filters = {
@@ -99,4 +109,7 @@ export const useAppStore = create<AppState>((set) => ({
     });
   },
   clearUserLocation: () => set({ userLocation: null, sortByDistance: false }),
+
+  mapBounds: null,
+  setMapBounds: (b) => set({ mapBounds: b }),
 }));

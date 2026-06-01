@@ -13,13 +13,23 @@ import type { Restaurant } from "../lib/types";
 const SEONGNAM_CENTER: L.LatLngTuple = [37.4019, 127.1086]; // 판교
 const DEFAULT_ZOOM = 14;
 
-function svgPinIcon(color: string): L.DivIcon {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='28' height='36' viewBox='0 0 28 36'><path d='M14 0C6.27 0 0 6.27 0 14c0 9.5 14 22 14 22s14-12.5 14-22C28 6.27 21.73 0 14 0z' fill='${color}' stroke='white' stroke-width='2'/><circle cx='14' cy='14' r='5' fill='white'/></svg>`;
+function svgPinIcon(color: string, selected = false): L.DivIcon {
+  const size = selected ? 40 : 28;
+  const height = selected ? 50 : 36;
+  const stroke = selected ? 3 : 2;
+  const inner = selected ? 7 : 5;
+  const svg = `
+    <svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${height}' viewBox='0 0 28 36'
+         style='filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));'>
+      <path d='M14 0C6.27 0 0 6.27 0 14c0 9.5 14 22 14 22s14-12.5 14-22C28 6.27 21.73 0 14 0z'
+            fill='${color}' stroke='white' stroke-width='${stroke}'/>
+      <circle cx='14' cy='14' r='${inner}' fill='white'/>
+    </svg>`;
   return L.divIcon({
     html: svg,
     className: "pin-marker",
-    iconSize: [28, 36],
-    iconAnchor: [14, 36],
+    iconSize: [size, height],
+    iconAnchor: [size / 2, height],
   });
 }
 
@@ -43,6 +53,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
   const userLocation = useAppStore((s) => s.userLocation);
+  const setMapBounds = useAppStore((s) => s.setMapBounds);
 
   // init map once
   useEffect(() => {
@@ -96,6 +107,18 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
 
     mapRef.current = map;
 
+    const pushBounds = () => {
+      const b = map.getBounds();
+      setMapBounds({
+        south: b.getSouth(),
+        west: b.getWest(),
+        north: b.getNorth(),
+        east: b.getEast(),
+      });
+    };
+    map.on("moveend", pushBounds);
+    map.whenReady(() => setTimeout(pushBounds, 0));
+
     const cluster = (L as any).markerClusterGroup({
       showCoverageOnHover: false,
       maxClusterRadius: 50,
@@ -104,10 +127,11 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     clusterRef.current = cluster;
 
     return () => {
+      map.off("moveend", pushBounds);
       map.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [setMapBounds]);
 
   // update markers when filtered changes
   useEffect(() => {
@@ -122,6 +146,7 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
         icon: svgPinIcon(CATEGORY_COLORS[r.categoryGroup]),
         title: r.name,
       });
+      (marker as any)._cat = r.categoryGroup;
       marker.on("click", () => {
         setSelectedId(r.id);
         mapRef.current?.panTo([r.lat, r.lng]);
@@ -132,13 +157,20 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     cluster.addLayers(newMarkers);
   }, [filtered, setSelectedId]);
 
-  // pan to selection
+  // pan to selection + 강조
   useEffect(() => {
-    if (!mapRef.current || !selectedId) return;
-    const m = markersRef.current.get(selectedId);
-    if (m) {
-      const pos = m.getLatLng();
-      mapRef.current.panTo(pos);
+    if (!mapRef.current) return;
+    // 모든 마커 기본 사이즈로
+    markersRef.current.forEach((m, id) => {
+      const cat = (m as any)._cat as string | undefined;
+      const color = cat ? CATEGORY_COLORS[cat as keyof typeof CATEGORY_COLORS] : "#6b7280";
+      m.setIcon(svgPinIcon(color, id === selectedId));
+      if (id === selectedId) m.setZIndexOffset(500);
+      else m.setZIndexOffset(0);
+    });
+    if (selectedId) {
+      const m = markersRef.current.get(selectedId);
+      if (m) mapRef.current.panTo(m.getLatLng());
     }
   }, [selectedId]);
 

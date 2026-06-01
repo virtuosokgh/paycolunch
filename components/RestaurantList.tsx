@@ -4,10 +4,18 @@ import { useAppStore } from "../lib/store";
 import { CATEGORY_COLORS } from "../lib/categoryMap";
 import type { Restaurant } from "../lib/types";
 
+function distanceLabel(km: number): string {
+  if (km < 1) return `${Math.round(km * 1000)}m`;
+  if (km < 10) return `${km.toFixed(1)}km`;
+  return `${Math.round(km)}km`;
+}
+
 export default function RestaurantList({
   items,
+  totalFiltered,
 }: {
   items: Array<Restaurant & { distance?: number }>;
+  totalFiltered: number;
 }) {
   const selectedId = useAppStore((s) => s.selectedId);
   const setSelectedId = useAppStore((s) => s.setSelectedId);
@@ -15,48 +23,65 @@ export default function RestaurantList({
 
   if (items.length === 0) {
     return (
-      <div className="p-6 text-sm text-gray-500">
-        조건에 맞는 식당이 없습니다.
+      <div className="p-8 text-center text-sm text-gray-500">
+        <div className="text-3xl mb-2">🔍</div>
+        <div className="font-medium text-gray-700">현재 지도 영역에 식당이 없어요</div>
+        <div className="text-xs text-gray-400 mt-1">
+          지도를 다른 곳으로 옮기거나 줌 아웃 해보세요
+          {totalFiltered > 0 && ` (필터 결과 ${totalFiltered}곳)`}
+        </div>
       </div>
     );
   }
 
   return (
-    <ul className="divide-y">
+    <ul className="divide-y divide-gray-100">
       {items.map((r) => {
         const selected = r.id === selectedId;
+        const color = CATEGORY_COLORS[r.categoryGroup];
         return (
           <li
             key={r.id}
             onClick={() => setSelectedId(r.id)}
-            className={`px-4 py-3 cursor-pointer hover:bg-gray-50 ${
-              selected ? "bg-blue-50" : ""
+            className={`group px-4 py-3.5 cursor-pointer transition-colors ${
+              selected ? "bg-emerald-50 border-l-4 border-emerald-500" : "border-l-4 border-transparent hover:bg-gray-50"
             }`}
           >
-            <div className="flex items-start gap-2">
+            <div className="flex items-baseline justify-between gap-2">
+              <h3 className="font-bold text-[15px] text-gray-900 leading-snug truncate">
+                {r.name}
+              </h3>
+              {sortByDistance && r.distance !== undefined && (
+                <span className="text-[12px] text-gray-500 flex-shrink-0 font-medium">
+                  {distanceLabel(r.distance)}
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-1.5 mt-1.5">
               <span
-                className="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0"
-                style={{ background: CATEGORY_COLORS[r.categoryGroup] }}
-              />
-              <div className="flex-1 min-w-0">
-                <div className="flex items-baseline justify-between gap-2">
-                  <div className="font-medium truncate">{r.name}</div>
-                  {sortByDistance && r.distance !== undefined && (
-                    <div className="text-xs text-gray-500 flex-shrink-0">
-                      {r.distance < 1
-                        ? `${Math.round(r.distance * 1000)}m`
-                        : `${r.distance.toFixed(1)}km`}
-                    </div>
-                  )}
-                </div>
-                <div className="text-xs text-gray-500 mt-0.5">
-                  <span>{r.categoryGroup}</span>
-                  <span className="mx-1">·</span>
-                  <span>
-                    {r.gu} {r.dong}
-                  </span>
-                </div>
-              </div>
+                className="inline-flex items-center text-[11px] font-medium px-1.5 py-0.5 rounded"
+                style={{ background: `${color}1a`, color }}
+              >
+                {r.categoryGroup}
+              </span>
+              {r.category && (
+                <span className="text-[12px] text-gray-500 truncate">
+                  {r.category.split(">").slice(-1)[0].trim()}
+                </span>
+              )}
+            </div>
+
+            <div className="mt-1.5 text-[12px] text-gray-500 truncate">
+              {r.gu} {r.dong}
+              {r.address ? ` · ${r.address.replace(/^경기도 성남시 (분당구|수정구|중원구)\s?/, "")}` : ""}
+            </div>
+
+            <div className="mt-2 flex items-center gap-2 text-[11px]">
+              <span className="inline-flex items-center gap-0.5 text-emerald-600 font-medium">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" /> PAYCO 식권
+              </span>
+              {r.phone && <span className="text-gray-400">· {r.phone}</span>}
             </div>
           </li>
         );
