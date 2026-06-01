@@ -34,7 +34,7 @@ interface AppState {
 
   userLocation: UserLocation | null;
   sortByDistance: boolean;
-  requestUserLocation: () => Promise<void>;
+  requestUserLocation: (silent?: boolean) => Promise<void>;
   clearUserLocation: () => void;
 
   mapBounds: MapBounds | null;
@@ -76,9 +76,9 @@ export const useAppStore = create<AppState>((set) => ({
 
   userLocation: null,
   sortByDistance: false,
-  requestUserLocation: async () => {
+  requestUserLocation: async (silent = false) => {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
-      alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
+      if (!silent) alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
       return;
     }
     return new Promise((resolve) => {
@@ -91,6 +91,11 @@ export const useAppStore = create<AppState>((set) => ({
           resolve();
         },
         (err) => {
+          if (silent) {
+            // 자동 호출 (페이지 첫 진입)에서는 조용히 실패
+            resolve();
+            return;
+          }
           let msg = "";
           if (err.code === 1) {
             msg =

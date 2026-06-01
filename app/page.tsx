@@ -27,6 +27,15 @@ export default function Home() {
       .catch((e) => console.error("Failed to load data", e));
   }, [setRestaurants]);
 
+  // 첫 진입 시 자동 현위치 요청 (조용히 — 권한 거부 alert 없이)
+  useEffect(() => {
+    const requestUserLocation = useAppStore.getState().requestUserLocation;
+    const t = setTimeout(() => {
+      requestUserLocation(true);
+    }, 600);
+    return () => clearTimeout(t);
+  }, []);
+
   const withDistance = useMemo(() => {
     if (!userLocation) return restaurants.map((r) => ({ ...r }));
     return restaurants.map((r) => ({
