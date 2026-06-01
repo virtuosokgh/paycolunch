@@ -20,9 +20,6 @@ export default function FilterBar({
   const toggleCategory = useAppStore((s) => s.toggleCategory);
   const setSearch = useAppStore((s) => s.setSearch);
   const resetFilters = useAppStore((s) => s.resetFilters);
-  const requestUserLocation = useAppStore((s) => s.requestUserLocation);
-  const clearUserLocation = useAppStore((s) => s.clearUserLocation);
-  const userLocation = useAppStore((s) => s.userLocation);
 
   const dongOptions = useMemo(() => {
     if (!filters.gu) return [];
@@ -66,15 +63,6 @@ export default function FilterBar({
         placeholder="식당 이름 검색"
         className="border rounded px-3 py-1.5 text-sm w-48"
       />
-
-      <button
-        onClick={() => (userLocation ? clearUserLocation() : requestUserLocation())}
-        className={`px-3 py-1.5 text-sm rounded border ${
-          userLocation ? "bg-blue-500 text-white border-blue-500" : "bg-white"
-        }`}
-      >
-        📍 {userLocation ? "내 위치 ON" : "현재 위치"}
-      </button>
 
       <div className="flex flex-wrap gap-1">
         {CATEGORY_GROUPS.map((c) => {

@@ -122,5 +122,41 @@ export default function LeafletMap({ filtered }: { filtered: Restaurant[] }) {
     }
   }, [userLocation]);
 
-  return <div ref={containerRef} className="w-full h-full" />;
+  const requestUserLocation = useAppStore((s) => s.requestUserLocation);
+  const clearUserLocation = useAppStore((s) => s.clearUserLocation);
+
+  return (
+    <div className="w-full h-full relative">
+      <div ref={containerRef} className="w-full h-full" />
+      <button
+        type="button"
+        onClick={() => (userLocation ? clearUserLocation() : requestUserLocation())}
+        title={userLocation ? "내 위치 끄기" : "현재 위치로 이동"}
+        aria-label="현재 위치"
+        className={`absolute bottom-6 right-6 z-[400] w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-colors ${
+          userLocation
+            ? "bg-blue-500 text-white hover:bg-blue-600"
+            : "bg-white text-gray-700 hover:bg-gray-50 border"
+        }`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <path d="M12 2v3" />
+          <path d="M12 19v3" />
+          <path d="M2 12h3" />
+          <path d="M19 12h3" />
+        </svg>
+      </button>
+    </div>
+  );
 }
