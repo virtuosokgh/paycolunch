@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-// Upstash Redis 환경변수가 있으면 영구 저장, 없으면 메모리 fallback
-const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
-const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+// Vercel KV 통합 (KV_REST_API_URL/TOKEN) 또는 Upstash 직접 통합 (UPSTASH_REDIS_REST_URL/TOKEN)
+// 둘 중 하나라도 있으면 영구 저장, 둘 다 없으면 메모리 fallback
+const UPSTASH_URL =
+  process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+const UPSTASH_TOKEN =
+  process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
 
 const KV_KEY_FAVORITED = "paycolunch:favorited"; // 글로벌 즐겨찾기 식당 ID 목록
 const KV_KEY_COUNTS = "paycolunch:fav-counts"; // 각 식당의 누적 즐겨찾기 누른 횟수
