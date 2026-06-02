@@ -2,46 +2,72 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-// Upstash Redis 환경변수가 있으면 영구 저장, 없으면 메모리 (서버 재시작 시 사라짐)
+// Upstash Redis 환경변수가 있으면 영구 저장, 없으면 메모리 fallback
 const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
 const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 
-const KV_KEY = "paycolunch:fav-counts";
+const KV_KEY_FAVORITED = "paycolunch:favorited"; // 글로벌 즐겨찾기 식당 ID 목록
+const KV_KEY_COUNTS = "paycolunch:fav-counts"; // 각 식당의 누적 즐겨찾기 누른 횟수
 
-// 메모리 fallback (Vercel 함수가 죽지 않는 한 유지)
-const memoryStore: { counts: Record<string, number> } = { counts: {} };
+// 메모리 fallback (서버리스 함수 인스턴스마다 따로, 재시작 시 리셋)
+const memoryStore: {
+  favorited: Set<string>;
+  counts: Record<string, number>;
+} = { favorited: new Set(), counts: {} };
 
-async function readCounts(): Promise<Record<string, number>> {
+async function readState() {
   if (UPSTASH_URL && UPSTASH_TOKEN) {
     try {
-      const r = await fetch(`${UPSTASH_URL}/get/${KV_KEY}`, {
-        headers: { Authorization: `Bearer ${UPSTASH_TOKEN}` },
-        cache: "no-store",
-      });
-      const j = await r.json();
-      if (j.result) {
-        return JSON.parse(j.result) as Record<string, number>;
-      }
-      return {};
+      const [favRes, countRes] = await Promise.all([
+        fetch(`${UPSTASH_URL}/get/${KV_KEY_FAVORITED}`, {
+          headers: { Authorization: `Bearer ${UPSTASH_TOKEN}` },
+          cache: "no-store",
+        }),
+        fetch(`${UPSTASH_URL}/get/${KV_KEY_COUNTS}`, {
+          headers: { Authorization: `Bearer ${UPSTASH_TOKEN}` },
+          cache: "no-store",
+        }),
+      ]);
+      const fJ = await favRes.json();
+      const cJ = await countRes.json();
+      const favArr = fJ.result ? (JSON.parse(fJ.result) as string[]) : [];
+      const counts = cJ.result
+        ? (JSON.parse(cJ.result) as Record<string, number>)
+        : {};
+      return { favorited: new Set(favArr), counts };
     } catch {
-      return memoryStore.counts;
+      return memoryStore;
     }
   }
-  return memoryStore.counts;
+  return memoryStore;
 }
 
-async function writeCounts(counts: Record<string, number>) {
+async function writeState(
+  favorited: Set<string>,
+  counts: Record<string, number>,
+) {
+  memoryStore.favorited = favorited;
   memoryStore.counts = counts;
   if (UPSTASH_URL && UPSTASH_TOKEN) {
     try {
-      await fetch(`${UPSTASH_URL}/set/${KV_KEY}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${UPSTASH_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(counts),
-      });
+      await Promise.all([
+        fetch(`${UPSTASH_URL}/set/${KV_KEY_FAVORITED}`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${UPSTASH_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify([...favorited]),
+        }),
+        fetch(`${UPSTASH_URL}/set/${KV_KEY_COUNTS}`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${UPSTASH_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(counts),
+        }),
+      ]);
     } catch {
       // 무시
     }
@@ -49,9 +75,9 @@ async function writeCounts(counts: Record<string, number>) {
 }
 
 export async function GET() {
-  const counts = await readCounts();
+  const s = await readState();
   return NextResponse.json(
-    { counts },
+    { favorited: [...s.favorited], counts: s.counts },
     { headers: { "Cache-Control": "no-store" } },
   );
 }
@@ -59,23 +85,27 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  if (!id) {
-    return NextResponse.json({ error: "id required" }, { status: 400 });
-  }
+  if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
   let action: "add" | "remove" = "add";
   try {
     const body = await req.json();
     if (body?.action === "remove") action = "remove";
   } catch {
-    // body 없으면 add 기본
+    // body 없으면 기본 add
   }
 
-  const counts = await readCounts();
-  const cur = counts[id] ?? 0;
-  if (action === "add") counts[id] = cur + 1;
-  else counts[id] = Math.max(0, cur - 1);
-  if (counts[id] === 0) delete counts[id];
+  const s = await readState();
+  if (action === "add") {
+    s.favorited.add(id);
+    // counts는 누적 통계 — remove에선 줄이지 않음
+    s.counts[id] = (s.counts[id] ?? 0) + 1;
+  } else {
+    s.favorited.delete(id);
+  }
+  await writeState(s.favorited, s.counts);
 
-  await writeCounts(counts);
-  return NextResponse.json({ counts });
+  return NextResponse.json({
+    favorited: [...s.favorited],
+    counts: s.counts,
+  });
 }

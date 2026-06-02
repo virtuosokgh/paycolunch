@@ -103,6 +103,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   favorites: new Set<string>(),
   favoriteCounts: {},
   toggleFavorite: (id: string) => {
+    // 낙관적 업데이트
     const current = get().favorites;
     const next = new Set(current);
     const willAdd = !next.has(id);
@@ -111,28 +112,43 @@ export const useAppStore = create<AppState>((set, get) => ({
     writeLocalFavorites(next);
     set({ favorites: next });
 
-    // 서버 동기화 (실패해도 로컬은 유지)
+    // 서버에 토글 동기화 + 응답으로 받은 글로벌 set/counts로 보정
     fetch(`/api/favorites?id=${encodeURIComponent(id)}`, {
       method: "POST",
       body: JSON.stringify({ action: willAdd ? "add" : "remove" }),
       headers: { "Content-Type": "application/json" },
     })
       .then((r) => r.json())
-      .then((data: { counts?: Record<string, number> }) => {
-        if (data.counts) set({ favoriteCounts: data.counts });
+      .then((data: { favorited?: string[]; counts?: Record<string, number> }) => {
+        if (data.favorited) {
+          const serverSet = new Set(data.favorited);
+          writeLocalFavorites(serverSet);
+          set({
+            favorites: serverSet,
+            favoriteCounts: data.counts ?? {},
+          });
+        }
       })
       .catch(() => {});
   },
   loadFavorites: async () => {
-    // 1) 로컬 즉시 반영
+    // 1) 로컬 즉시 반영 (오프라인 폴백)
     const local = readLocalFavorites();
     set({ favorites: local });
-    // 2) 서버에서 글로벌 즐겨찾기 카운트 가져오기
+    // 2) 서버에서 글로벌 favorited 받아서 덮어쓰기 — A 모델: 모두가 같은 별 봄
     try {
       const r = await fetch("/api/favorites", { cache: "no-store" });
       if (r.ok) {
-        const data = (await r.json()) as { counts: Record<string, number> };
-        set({ favoriteCounts: data.counts ?? {} });
+        const data = (await r.json()) as {
+          favorited?: string[];
+          counts?: Record<string, number>;
+        };
+        const serverSet = new Set(data.favorited ?? []);
+        writeLocalFavorites(serverSet);
+        set({
+          favorites: serverSet,
+          favoriteCounts: data.counts ?? {},
+        });
       }
     } catch {
       // 서버 미연결이면 로컬만 사용
