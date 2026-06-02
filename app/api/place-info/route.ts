@@ -243,6 +243,12 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json(
     { menuImages, images, blogs, menuExtracted },
-    { headers: { "Cache-Control": "no-store" } },
+    {
+      // 같은 가게는 5분 브라우저 캐시 + 1시간 CDN 캐시 + 24시간 stale-while-revalidate
+      headers: {
+        "Cache-Control":
+          "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400",
+      },
+    },
   );
 }

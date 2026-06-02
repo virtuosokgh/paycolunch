@@ -6,6 +6,10 @@ import { CATEGORY_COLORS } from "../lib/categoryMap";
 import type { Restaurant } from "../lib/types";
 import ImageLightbox, { type LightboxImage } from "./ImageLightbox";
 
+// 모듈 레벨 캐시 — 같은 식당 다시 클릭 시 즉시 표시
+const placeInfoCache = new Map<string, PlaceInfo>();
+const resolveUrlCache = new Map<string, string>();
+
 interface PlaceImage {
   title: string;
   link: string;
@@ -99,40 +103,59 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
       return;
     }
     let cancelled = false;
-    setLoading(true);
-    setInfo(null);
-    // 폴백 URL 즉시 설정 (resolve API 응답 전에도 버튼 작동하도록)
-    setResolvedUrl(
-      `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`,
-    );
 
-    const infoUrl = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
-    fetch(infoUrl, { cache: "no-store" })
-      .then(async (r) => {
-        const data = await r.json();
-        if (!r.ok) {
-          return { menuImages: [], images: [], blogs: [], error: data?.error ?? `HTTP ${r.status}` };
-        }
-        return data as PlaceInfo;
-      })
-      .then((data: PlaceInfo) => {
-        if (!cancelled) setInfo(data);
-      })
-      .catch(() => {
-        if (!cancelled) setInfo({ menuImages: [], images: [], blogs: [], error: "네트워크 오류" });
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
+    // 즉시 폴백 URL 세팅 (resolve API 응답 전에도 버튼 작동)
+    const fallbackUrl = `https://map.naver.com/p/search/${encodeURIComponent(restaurant.name)}`;
+    setResolvedUrl(resolveUrlCache.get(restaurant.id) ?? fallbackUrl);
 
-    // 정확한 가게 페이지 URL(좌표 hint + 메뉴 탭) 백그라운드 resolve
-    const resolveUrl = `/api/place-resolve?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`;
-    fetch(resolveUrl, { cache: "no-store" })
-      .then((r) => r.json())
-      .then((data) => {
-        if (!cancelled && data.url) setResolvedUrl(data.url);
-      })
-      .catch(() => {});
+    // 1) place-info: 캐시 hit이면 즉시 렌더, 아니면 fetch
+    const cachedInfo = placeInfoCache.get(restaurant.id);
+    if (cachedInfo) {
+      setInfo(cachedInfo);
+      setLoading(false);
+    } else {
+      setLoading(true);
+      setInfo(null);
+      const infoUrl = `/api/place-info?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}&categoryGroup=${encodeURIComponent(restaurant.categoryGroup)}`;
+      fetch(infoUrl) // 캐시 헤더 + 브라우저 캐시 활용
+        .then(async (r) => {
+          const data = await r.json();
+          if (!r.ok) {
+            return {
+              menuImages: [],
+              images: [],
+              blogs: [],
+              error: data?.error ?? `HTTP ${r.status}`,
+            } as PlaceInfo;
+          }
+          return data as PlaceInfo;
+        })
+        .then((data: PlaceInfo) => {
+          if (cancelled) return;
+          if (!data.error) placeInfoCache.set(restaurant.id, data);
+          setInfo(data);
+        })
+        .catch(() => {
+          if (!cancelled)
+            setInfo({ menuImages: [], images: [], blogs: [], error: "네트워크 오류" });
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false);
+        });
+    }
+
+    // 2) place-resolve: 캐시 hit이면 즉시, 아니면 fetch
+    if (!resolveUrlCache.has(restaurant.id)) {
+      const resolveUrl = `/api/place-resolve?name=${encodeURIComponent(restaurant.name)}&address=${encodeURIComponent(restaurant.address)}`;
+      fetch(resolveUrl)
+        .then((r) => r.json())
+        .then((data) => {
+          if (cancelled || !data.url) return;
+          resolveUrlCache.set(restaurant.id, data.url);
+          setResolvedUrl(data.url);
+        })
+        .catch(() => {});
+    }
 
     return () => {
       cancelled = true;
@@ -238,33 +261,45 @@ export default function DetailPanel({ all }: { all: Restaurant[] }) {
         </a>
 
         {/* 본문에서 추출한 메뉴 */}
-        {info && (info.menuExtracted ?? []).length > 0 && (
+        {info && !info.error && (
           <section className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-3">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-sm font-bold text-emerald-800">
                 📋 본문에서 추출한 메뉴
               </h3>
-              <span className="text-[10px] text-emerald-600 font-medium">
-                {(info.menuExtracted ?? []).length}개
-              </span>
+              {(info.menuExtracted ?? []).length > 0 && (
+                <span className="text-[10px] text-emerald-600 font-medium">
+                  {(info.menuExtracted ?? []).length}개
+                </span>
+              )}
             </div>
-            <p className="text-[10px] text-emerald-700/80 mb-2 leading-relaxed">
-              ※ 블로그 리뷰 본문에서 자동 추출한 메뉴/가격입니다. 정확하지 않을 수 있어요.
-              정식 메뉴는 아래 <span className="font-semibold">네이버 지도에서 자세히 보기</span>에서 확인하세요.
-            </p>
-            <ul className="space-y-1">
-              {(info.menuExtracted ?? []).slice(0, 12).map((m, i) => (
-                <li
-                  key={i}
-                  className="flex justify-between items-baseline gap-3 text-sm border-b border-emerald-200/50 pb-1 last:border-0 last:pb-0"
-                >
-                  <span className="text-gray-800 truncate">{m.name}</span>
-                  <span className="font-bold text-emerald-700 flex-shrink-0 tabular-nums">
-                    {m.price}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {(info.menuExtracted ?? []).length > 0 ? (
+              <>
+                <p className="text-[10px] text-emerald-700/80 mb-2 leading-relaxed">
+                  ※ 블로그 리뷰 본문에서 자동 추출한 메뉴/가격입니다. 정확하지 않을 수
+                  있어요.
+                </p>
+                <ul className="space-y-1">
+                  {(info.menuExtracted ?? []).slice(0, 12).map((m, i) => (
+                    <li
+                      key={i}
+                      className="flex justify-between items-baseline gap-3 text-sm border-b border-emerald-200/50 pb-1 last:border-0 last:pb-0"
+                    >
+                      <span className="text-gray-800 truncate">{m.name}</span>
+                      <span className="font-bold text-emerald-700 flex-shrink-0 tabular-nums">
+                        {m.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <p className="text-xs text-emerald-700/70 leading-relaxed">
+                블로그 본문에서 가격 정보를 찾지 못했어요. 정식 메뉴는 아래{" "}
+                <span className="font-semibold">네이버 지도에서 자세히 보기</span>에서
+                확인하세요.
+              </p>
+            )}
           </section>
         )}
 
